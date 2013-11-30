@@ -22,5 +22,12 @@ public class Board extends JFrame {
         setLocationRelativeTo(null); //On centre la fenêtre sur l'écran
         setResizable(false); //On interdit la redimensionnement de la fenêtre
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+        JLabel blueScore = new JLabel("0");
+        blueScore.setLocation(1000, 0);
+        blueScore.setSize(100, 30);
+        blueScore.setHorizontalAlignment(0);
+        this.add(blueScore);
     }
 }

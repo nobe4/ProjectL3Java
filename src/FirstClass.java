@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 /**
  * Created with IntelliJ IDEA.
  * User: padawan
@@ -7,6 +9,12 @@
  */
 public class FirstClass {
     public static void main(String[] args) {
-        System.out.println("MMM MONSTER KILL");
+        SwingUtilities.invokeLater(new Runnable(){
+            public void run(){
+                Board b = new Board();
+                b.setVisible(true);
+            }
+        });
+
     }
 }

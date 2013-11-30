@@ -3,18 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="5792c667-44f0-4842-b38b-9cd12ea564c3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test.java" afterPath="$PROJECT_DIR$/src/Test.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Widget.java" afterPath="$PROJECT_DIR$/src/Widget.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ProjetJava.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385833980581" ignored="false" />
+    <file path="/Dummy.txt" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385839859838" ignored="false" />
     <file path="/FirstClass.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385825043869" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/misc.xml" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385648936213" ignored="false" />
     <file path="/a.dummy" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385713661361" ignored="false" />
     <file path="/Board.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385812625703" ignored="false" />
-    <file path="/Widget.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385809296905" ignored="false" />
+    <file path="/Widget.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385841019337" ignored="false" />
     <file path="/fragment.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385809192274" ignored="false" />
-    <file path="/ButtonExample_Extended.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385839805062" ignored="false" />
+    <file path="/ButtonExample_Extended.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385840786856" ignored="false" />
     <file path="/Test.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385839140875" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,11 +80,26 @@
       <file leaf-file-name="Test.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="37" selection-start="2758" selection-end="2758" vertical-scroll-proportion="0.42437923">
+            <state line="35" column="41" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.5756208">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2041#2149#0" expanded="true" />
-                <element signature="e#2138#2139#0" expanded="true" />
+                <element signature="e#853#961#0" expanded="true" />
+                <element signature="e#950#951#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Widget.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Widget.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="27" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#moveBlock#0;class#Widget#0" expanded="false" />
+                <element signature="method#keyTyped#0;class#Widget#0" expanded="false" />
+                <element signature="method#keyPressed#0;class#Widget#0" expanded="false" />
+                <element signature="method#keyReleased#0;class#Widget#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -107,10 +123,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Widget.java" />
         <option value="$PROJECT_DIR$/src/Board.java" />
         <option value="$PROJECT_DIR$/src/FirstClass.java" />
         <option value="$PROJECT_DIR$/src/ButtonExample_Extended.java" />
+        <option value="$PROJECT_DIR$/src/Widget.java" />
         <option value="$PROJECT_DIR$/src/Test.java" />
       </list>
     </option>
@@ -432,7 +448,11 @@
       <created>1385833989928</created>
       <updated>1385833989928</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Multiple Input Keyboard">
+      <created>1385839864514</created>
+      <updated>1385839864514</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -504,7 +524,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Keyboard interaction test with key manager, it works. I'll try with the setFocusable on the root just founded.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Multiple Input Keyboard" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -521,6 +541,7 @@
     <MESSAGE value="Frist Commit" />
     <MESSAGE value="Added swing to projet, first class from JFrame and instance in the main method" />
     <MESSAGE value="Keyboard interaction test with key manager, it works. I'll try with the setFocusable on the root just founded.&#10;" />
+    <MESSAGE value="Multiple Input Keyboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -535,8 +556,8 @@
         <state line="13" column="4" selection-start="366" selection-end="366" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2041#2149#0" expanded="true" />
-            <element signature="e#2138#2139#0" expanded="true" />
+            <element signature="e#853#961#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -546,8 +567,8 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2041#2149#0" expanded="true" />
-            <element signature="e#2138#2139#0" expanded="true" />
+            <element signature="e#853#961#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -574,8 +595,8 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2041#2149#0" expanded="true" />
-            <element signature="e#2138#2139#0" expanded="true" />
+            <element signature="e#853#961#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -585,8 +606,8 @@
         <state line="11" column="1" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2041#2149#0" expanded="true" />
-            <element signature="e#2138#2139#0" expanded="true" />
+            <element signature="e#853#961#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -596,8 +617,8 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2041#2149#0" expanded="true" />
-            <element signature="e#2138#2139#0" expanded="true" />
+            <element signature="e#853#961#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -607,8 +628,8 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2041#2149#0" expanded="true" />
-            <element signature="e#2138#2139#0" expanded="true" />
+            <element signature="e#853#961#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -625,13 +646,6 @@
         <state line="67" column="25" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.6833773" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Widget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="44" selection-start="321" selection-end="321" vertical-scroll-proportion="0.47493404">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="33" selection-start="447" selection-end="447" vertical-scroll-proportion="0.15680474">
@@ -642,13 +656,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/Widget.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="37" selection-start="2758" selection-end="2758" vertical-scroll-proportion="0.42437923">
+        <state line="17" column="27" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2041#2149#0" expanded="true" />
-            <element signature="e#2138#2139#0" expanded="true" />
+            <element signature="method#moveBlock#0;class#Widget#0" expanded="false" />
+            <element signature="method#keyTyped#0;class#Widget#0" expanded="false" />
+            <element signature="method#keyPressed#0;class#Widget#0" expanded="false" />
+            <element signature="method#keyReleased#0;class#Widget#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="41" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.5756208">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#853#961#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
           </folding>
         </state>
       </provider>

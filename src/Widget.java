@@ -1,56 +1,82 @@
 import javax.swing.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-/**
- * Created with IntelliJ IDEA.
- * User: padawan
- * Date: 11/29/13
- * Time: 3:09 PM
- * To change this template use File | Settings | File Templates.
- */
-public class Widget {
-    private int x;
-    private int y;
-    private int h;
-    private int w;
-    private JWindow jWindow = new JWindow();
+public class Widget extends JButton implements KeyListener {
+    private boolean[] keyPressed = new boolean[]{false, false, false, false};
 
-    public Widget(int x, int y, int h, int w) {
-        this.x = x;
-        this.y = y;
-        this.h = h;
-        this.w = w;
+    public Widget(String text, int x, int y) {
+        this.setSize(this.getPreferredSize());
+        this.setLocation(100, 100);
+        this.setOpaque(true);
+
+        this.setFocusable(true);
+        this.addKeyListener(this);
     }
 
-
-    public int getX() {
-        return x;
+    public Widget(String text) {
+        this(text, 100, 100);
     }
 
-    public void setX(int x) {
-        this.x = x;
+    void moveBlock() {
+        if (keyPressed[0]) {     // UP
+            this.setLocation(this.getX(), this.getY() - 1);
+        }
+        if (keyPressed[1]) {     // DOWN
+            this.setLocation(this.getX(), this.getY() + 1);
+        }
+        if (keyPressed[2]) {     // LEFT
+            this.setLocation(this.getX() - 1, this.getY());
+        }
+        if (keyPressed[3]) {     // RIGHT
+            this.setLocation(this.getX() + 1, this.getY());
+        }
     }
 
-    public int getY() {
-        return y;
+    @Override
+    public void keyTyped(KeyEvent e) {
     }
 
-    public void setY(int y) {
-        this.y = y;
+    @Override
+    public void keyPressed(KeyEvent e) {
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_UP:
+                keyPressed[0] = true;
+                break;
+            case KeyEvent.VK_DOWN:
+                keyPressed[1] = true;
+                break;
+            case KeyEvent.VK_LEFT:
+                keyPressed[2] = true;
+                break;
+            case KeyEvent.VK_RIGHT:
+                keyPressed[3] = true;
+                break;
+            default:
+                System.out.println("other key printed");
+                break;
+        }
+        moveBlock();
     }
 
-    public int getH() {
-        return h;
-    }
-
-    public void setH(int h) {
-        this.h = h;
-    }
-
-    public int getW() {
-        return w;
-    }
-
-    public void setW(int w) {
-        this.w = w;
+    @Override
+    public void keyReleased(KeyEvent e) {
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_UP:
+                keyPressed[0] = false;
+                break;
+            case KeyEvent.VK_DOWN:
+                keyPressed[1] = false;
+                break;
+            case KeyEvent.VK_LEFT:
+                keyPressed[2] = false;
+                break;
+            case KeyEvent.VK_RIGHT:
+                keyPressed[3] = false;
+                break;
+            default:
+                System.out.println("other key printed");
+                break;
+        }
     }
 }

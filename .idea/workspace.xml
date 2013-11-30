@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5792c667-44f0-4842-b38b-9cd12ea564c3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test.java" afterPath="$PROJECT_DIR$/src/Test.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Widget.java" afterPath="$PROJECT_DIR$/src/Widget.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ProjetJava.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385839859838" ignored="false" />
+    <file path="/Dummy.txt" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385841122917" ignored="false" />
     <file path="/FirstClass.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385825043869" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/misc.xml" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385648936213" ignored="false" />
     <file path="/a.dummy" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385713661361" ignored="false" />
     <file path="/Board.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385812625703" ignored="false" />
-    <file path="/Widget.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385841019337" ignored="false" />
+    <file path="/Widget.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385844861378" ignored="false" />
     <file path="/fragment.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385809192274" ignored="false" />
     <file path="/ButtonExample_Extended.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385840786856" ignored="false" />
     <file path="/Test.java" changelist="5792c667-44f0-4842-b38b-9cd12ea564c3" time="1385839140875" ignored="false" />
@@ -77,10 +76,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Test.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Test.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="41" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.5756208">
+            <state line="35" column="41" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#853#961#0" expanded="true" />
@@ -90,13 +89,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Widget.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Widget.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Widget.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="27" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0">
+            <state line="22" column="22" selection-start="598" selection-end="598" vertical-scroll-proportion="0.36794582">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#moveBlock#0;class#Widget#0" expanded="false" />
                 <element signature="method#keyTyped#0;class#Widget#0" expanded="false" />
                 <element signature="method#keyPressed#0;class#Widget#0" expanded="false" />
                 <element signature="method#keyReleased#0;class#Widget#0" expanded="false" />
@@ -126,8 +124,8 @@
         <option value="$PROJECT_DIR$/src/Board.java" />
         <option value="$PROJECT_DIR$/src/FirstClass.java" />
         <option value="$PROJECT_DIR$/src/ButtonExample_Extended.java" />
-        <option value="$PROJECT_DIR$/src/Widget.java" />
         <option value="$PROJECT_DIR$/src/Test.java" />
+        <option value="$PROJECT_DIR$/src/Widget.java" />
       </list>
     </option>
   </component>
@@ -452,7 +450,11 @@
       <created>1385839864514</created>
       <updated>1385839864514</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Created widget based class, but only 1 is focused and text is missing ...">
+      <created>1385841125884</created>
+      <updated>1385841125884</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -524,7 +526,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Multiple Input Keyboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created widget based class, but only 1 is focused and text is missing ..." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -542,6 +544,7 @@
     <MESSAGE value="Added swing to projet, first class from JFrame and instance in the main method" />
     <MESSAGE value="Keyboard interaction test with key manager, it works. I'll try with the setFocusable on the root just founded.&#10;" />
     <MESSAGE value="Multiple Input Keyboard" />
+    <MESSAGE value="Created widget based class, but only 1 is focused and text is missing ..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -656,26 +659,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Widget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="27" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#moveBlock#0;class#Widget#0" expanded="false" />
-            <element signature="method#keyTyped#0;class#Widget#0" expanded="false" />
-            <element signature="method#keyPressed#0;class#Widget#0" expanded="false" />
-            <element signature="method#keyReleased#0;class#Widget#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="41" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.5756208">
+        <state line="35" column="41" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#853#961#0" expanded="true" />
             <element signature="e#950#951#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Widget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="22" selection-start="598" selection-end="598" vertical-scroll-proportion="0.36794582">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#keyTyped#0;class#Widget#0" expanded="false" />
+            <element signature="method#keyPressed#0;class#Widget#0" expanded="false" />
+            <element signature="method#keyReleased#0;class#Widget#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -6,8 +6,9 @@ public class Widget extends JButton implements KeyListener {
     private boolean[] keyPressed = new boolean[]{false, false, false, false};
 
     public Widget(String text, int x, int y) {
+        super(text);
         this.setSize(this.getPreferredSize());
-        this.setLocation(100, 100);
+        this.setLocation(x, y);
         this.setOpaque(true);
 
         this.setFocusable(true);
@@ -19,17 +20,18 @@ public class Widget extends JButton implements KeyListener {
     }
 
     void moveBlock() {
+        int speed = 10;
         if (keyPressed[0]) {     // UP
-            this.setLocation(this.getX(), this.getY() - 1);
+            this.setLocation(this.getX(), this.getY() - speed);
         }
         if (keyPressed[1]) {     // DOWN
-            this.setLocation(this.getX(), this.getY() + 1);
+            this.setLocation(this.getX(), this.getY() + speed);
         }
         if (keyPressed[2]) {     // LEFT
-            this.setLocation(this.getX() - 1, this.getY());
+            this.setLocation(this.getX() - speed, this.getY());
         }
         if (keyPressed[3]) {     // RIGHT
-            this.setLocation(this.getX() + 1, this.getY());
+            this.setLocation(this.getX() + speed, this.getY());
         }
     }
 

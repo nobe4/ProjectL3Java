@@ -1,7 +1,5 @@
 package fr.efrei.game.j2d;
 
-import javax.swing.*;
-
 import fr.efrei.game.GameModel;
 import fr.efrei.game.GamePanel;
 import fr.efrei.game.GameTest;
@@ -10,6 +8,7 @@ import org.jbox2d.common.Mat22;
 import org.jbox2d.common.OBBViewportTransform;
 import org.jbox2d.common.Vec2;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -143,11 +142,11 @@ public class TestPanelJ2D extends JPanel implements GamePanel {
 //            if (panelWidth <= 0 || panelHeight <= 0) {
 //                return false;
 //            }
-//            dbImage = createImage(panelWidth, panelHeight);
-//            if (dbImage == null) {
+            dbImage = createImage(panelWidth, panelHeight);
+            if (dbImage == null) {
 //                log.error("dbImage is still null, ignoring render call");
-//                return false;
-//            }
+                return false;
+            }
             dbg = (Graphics2D) dbImage.getGraphics();
         }
         dbg.setColor(Color.black);

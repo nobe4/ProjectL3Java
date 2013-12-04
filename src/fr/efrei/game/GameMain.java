@@ -16,7 +16,6 @@ public class GameMain {
 //    private static final Logger log = LoggerFactory.getLogger(GameMain.class);
 
     public static void main(String[] args) {
-        System.out.print("fesfsd");
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Exception e) {

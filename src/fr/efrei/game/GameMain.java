@@ -21,7 +21,10 @@ public class GameMain {
         } catch (Exception e) {
 //            log.warn("Could not set the look and feel to nimbus.  "
 //                    + "Hopefully you're on a mac so the window isn't ugly as crap.");
+            System.out.println("Could not set the look and feel to nimbus.  "
+                    + "Hopefully you're on a mac so the window isn't ugly as crap.");
         }
+
         GameModel model = new GameModel();
         GamePanel panel = new TestPanelJ2D(model);
         JFrame game = new GameFrame(model, panel, GameController.UpdateBehavior.UPDATE_CALLED);

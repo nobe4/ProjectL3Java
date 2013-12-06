@@ -3,7 +3,6 @@ package fr.efrei.game;
 import org.jbox2d.callbacks.DebugDraw;
 import org.jbox2d.common.Vec2;
 
-import javax.swing.*;
 import java.util.Vector;
 
 /**
@@ -14,23 +13,23 @@ import java.util.Vector;
  * To change this template use File | Settings | File Templates.
  */
 public class GameModel {
-    private final DefaultComboBoxModel tests = new DefaultComboBoxModel();
+//    private final DefaultComboBoxModel tests = new DefaultComboBoxModel();
 //    private final GameSettings settings = new GameSettings();
 
-    private final Vec2 mouse = new Vec2();
-    private final Vector<TestChangedListener> listeners = new Vector<TestChangedListener>();
-    private final boolean[] keys = new boolean[512];
-    private final boolean[] codedKeys = new boolean[512];
-    private float panelWidth;
+    private final Vec2 mouse = new Vec2(); // mouse position
+    private final Vector<TestChangedListener> listeners = new Vector<TestChangedListener>(); // changeListener List
+    private final boolean[] keys = new boolean[512];        // clarify
+    private final boolean[] codedKeys = new boolean[512];   // clarify
+    private float panelWidth; // clarify
 
     //Debug attributes
     private float calculatedFps;
-    private DebugDraw draw;
+    private DebugDraw draw; // clarify
 
     //Test variables
-    private GameTest test;
+    private GameTest test;          // current test shown
     private int currTestIndex = -1;
-    private GameTest runningTest;
+    private GameTest runningTest;  // current running test
 
     public GameModel() {
     }
@@ -89,7 +88,7 @@ public class GameModel {
         return codedKeys;
     }
 
-    public void setCurrTestIndex(int argCurrTestIndex) {
+    /*public void setCurrTestIndex(int argCurrTestIndex) {
         if(argCurrTestIndex < 0 || argCurrTestIndex >= tests.getSize()){
             throw new IllegalArgumentException("Invalid test index");
         }
@@ -106,7 +105,7 @@ public class GameModel {
         for (TestChangedListener listener : listeners) {
             listener.testChanged(test, currTestIndex);
         }
-    }
+    }*/
 
     public int getCurrTestIndex() {
         return currTestIndex;
@@ -128,7 +127,7 @@ public class GameModel {
         listeners.remove(argListener);
     }
 
-    public void addTest(GameTest argTest) {
+    /*public void addTest(GameTest argTest) {
         tests.addElement(new ListItem(argTest));
     }
 
@@ -159,7 +158,7 @@ public class GameModel {
 
     public DefaultComboBoxModel getComboModel() {
         return tests;
-    }
+    }*/
 
 //    public GameSettings getSettings() {
 //        return settings;

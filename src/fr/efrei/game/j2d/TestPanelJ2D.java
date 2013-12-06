@@ -30,7 +30,7 @@ public class TestPanelJ2D extends JPanel implements GamePanel {
     private static final float ZOOM_IN_SCALE = 1.05f;
 
     //Debug attributes
-    private Graphics2D dbg = null;
+    private Graphics2D dbg = null; // Debug for graphic render
     private Image dbImage = null;
     private final DebugDrawJ2D draw;
 
@@ -41,7 +41,7 @@ public class TestPanelJ2D extends JPanel implements GamePanel {
     private final GameModel model;
 
     private final Vec2 dragginMouse = new Vec2();
-    private boolean drag = false;
+    private boolean drag = false; // used for determining if the mouse is dragging
 
     public TestPanelJ2D(GameModel argModel) {
         setBackground(Color.black);
@@ -50,6 +50,8 @@ public class TestPanelJ2D extends JPanel implements GamePanel {
         updateSize(INIT_WIDTH, INIT_HEIGHT);
         setPreferredSize(new Dimension(INIT_WIDTH, INIT_HEIGHT));
 
+
+        // create the mouse wheel listener used for the UI
         addMouseWheelListener(new MouseWheelListener() {
 
             private final Vec2 oldCenter = new Vec2();
@@ -85,6 +87,7 @@ public class TestPanelJ2D extends JPanel implements GamePanel {
             }
         });
 
+        // mouse listener only for the pressed event
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -93,18 +96,19 @@ public class TestPanelJ2D extends JPanel implements GamePanel {
             }
         });
 
+        // mouse listener for the drag/drop ?
         addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
                 if (!drag) {
-                    return;
+                    return; //  never initialized in this file
                 }
                 GameTest currTest = model.getCurrTest();
                 if (currTest == null) {
                     return;
                 }
                 Vec2 diff = new Vec2(e.getX(), e.getY());
-                diff.subLocal(dragginMouse);
+                diff.subLocal(dragginMouse); // clarify
                 currTest.getDebugDraw().getViewportTranform().getScreenVectorToWorld(diff, diff);
                 currTest.getDebugDraw().getViewportTranform().getCenter().subLocal(diff);
 
@@ -112,6 +116,7 @@ public class TestPanelJ2D extends JPanel implements GamePanel {
             }
         });
 
+        // called when a component is resided
         addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
@@ -130,6 +135,7 @@ public class TestPanelJ2D extends JPanel implements GamePanel {
         return dbg;
     }
 
+    // update the view
     private void updateSize(int argWidth, int argHeight) {
         panelWidth = argWidth;
         panelHeight = argHeight;
@@ -137,7 +143,7 @@ public class TestPanelJ2D extends JPanel implements GamePanel {
     }
 
     public boolean render() {
-        if (dbImage == null) {
+        if (dbImage == null) { // if not initialised
 //            log.debug("dbImage is null, creating a new one");
 //            if (panelWidth <= 0 || panelHeight <= 0) {
 //                return false;
@@ -158,9 +164,9 @@ public class TestPanelJ2D extends JPanel implements GamePanel {
         try {
             Graphics g = this.getGraphics();
             if ((g != null) && dbImage != null) {
-                g.drawImage(dbImage, 0, 0, null);
-                Toolkit.getDefaultToolkit().sync();
-                g.dispose();
+                g.drawImage(dbImage, 0, 0, null); // draw the new image
+                Toolkit.getDefaultToolkit().sync(); // make sure the graphic is up to date
+                g.dispose(); // release the graphics after drawing
             }
         } catch (AWTError e) {
 //            log.error("Graphics context error", e);

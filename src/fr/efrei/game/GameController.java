@@ -83,15 +83,15 @@ public class GameController implements Runnable {
 
                 if (key == ' ' && model.getCurrTest() != null) {
                     model.getCurrTest().lanchBomb();
-                } else if (key == '[') {
+                }/* else if (key == '[') {
                     lastTest();
                 } else if (key == ']') {
                     nextTest();
-                } else if (key == 'r') {
+                }*/ else if (key == 'r') {
 //                    resetTest();
                 }
                 else if (model.getCurrTest() != null) {
-//                    model.getCurrTest().queueKeyPressed(key, code);
+//                   model.getCurrTest().queueKeyPressed(key, code);
                 }
             }
         });
@@ -110,7 +110,7 @@ public class GameController implements Runnable {
             public void mousePressed(MouseEvent e) {
                 panel.grabFocus();
                 if (model.getCurrTest() != null) {
-                    Vec2 pos = new Vec2(e.getX(), e.getY());
+                    Vec2 pos = new Vec2(e.getX(), e.getY()); // get mouse position
                     if (e.getButton() == MouseEvent.BUTTON1) {
                         model.getDebugDraw().getScreenToWorldToOut(pos, pos);
 //                        model.getCurrTest().queueMouseDown(pos);
@@ -177,7 +177,7 @@ public class GameController implements Runnable {
         }
     }
 
-    public void nextTest() {
+   /* public void nextTest() {
         int index = model.getCurrTestIndex() + 1;
         index %= model.getTestsSize();
 
@@ -187,7 +187,7 @@ public class GameController implements Runnable {
         if (model.isTestAt(index)) {
             model.setCurrTestIndex(index);
         }
-    }
+    }*/
 
 //    public void resetTest(){
 //        model.getCurrTest().reset();
@@ -201,7 +201,7 @@ public class GameController implements Runnable {
 //        model.getCurrTest().load();
 //    }
 
-    public void lastTest() {
+    /*public void lastTest() {
         int index = model.getCurrTestIndex() - 1;
         index = (index < 0) ? index + model.getTestsSize() : index;
 
@@ -212,7 +212,7 @@ public class GameController implements Runnable {
         if (model.isTestAt(index)) {
             model.setCurrTestIndex(index);
         }
-    }
+    }*/
 
     public void playTest(int argIndex){
         if (argIndex == -1) {

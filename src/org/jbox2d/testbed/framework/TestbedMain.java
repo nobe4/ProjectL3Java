@@ -38,6 +38,9 @@ import javax.swing.*;
  * 
  * @author Daniel Murphy
  */
+
+// ok
+
 public class TestbedMain {
   private static final Logger log = LoggerFactory.getLogger(TestbedMain.class);
 
@@ -50,7 +53,7 @@ public class TestbedMain {
     }
     TestbedModel model = new TestbedModel();
     TestbedPanel panel = new TestPanelJ2D(model);
-    TestList.populateModel(model);
+    TestList.populateModel(model); // add all test to the side panel
     JFrame testbed = new TestbedFrame(model, panel, UpdateBehavior.UPDATE_CALLED);
     testbed.setVisible(true);
     testbed.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

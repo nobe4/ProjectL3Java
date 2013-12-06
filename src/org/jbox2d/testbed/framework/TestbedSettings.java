@@ -26,18 +26,21 @@
  */
 package org.jbox2d.testbed.framework;
 
+import org.jbox2d.testbed.framework.TestbedSetting.SettingType;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-
-import org.jbox2d.testbed.framework.TestbedSetting.SettingType;
 
 /**
  * Stores all the testbed settings.  Automatically populates default settings.
  * 
  * @author Daniel Murphy
  */
+
+// OK
+
 public class TestbedSettings {
   public static final String Hz = "Hz";
   public static final String PositionIterations = "Pos Iters";
@@ -74,12 +77,12 @@ public class TestbedSettings {
     addSetting(new TestbedSetting(Hz, SettingType.ENGINE, 60, 1, 400));
     addSetting(new TestbedSetting(PositionIterations, SettingType.ENGINE, 3, 0, 100));
     addSetting(new TestbedSetting(VelocityIterations, SettingType.ENGINE, 8, 1, 100));
-    addSetting(new TestbedSetting(AllowSleep, SettingType.ENGINE, true));
-    addSetting(new TestbedSetting(WarmStarting, SettingType.ENGINE, true));
-    addSetting(new TestbedSetting(ContinuousCollision, SettingType.ENGINE, true));
+    addSetting(new TestbedSetting(AllowSleep, SettingType.ENGINE, false));
+    addSetting(new TestbedSetting(WarmStarting, SettingType.ENGINE, false));
+    addSetting(new TestbedSetting(ContinuousCollision, SettingType.ENGINE, false));
     addSetting(new TestbedSetting(SubStepping, SettingType.ENGINE, false));
-    addSetting(new TestbedSetting(DrawShapes, SettingType.DRAWING, true));
-    addSetting(new TestbedSetting(DrawJoints, SettingType.DRAWING, true));
+    addSetting(new TestbedSetting(DrawShapes, SettingType.DRAWING, false));
+    addSetting(new TestbedSetting(DrawJoints, SettingType.DRAWING, false));
     addSetting(new TestbedSetting(DrawAABBs, SettingType.DRAWING, false));
     addSetting(new TestbedSetting(DrawContactPoints, SettingType.DRAWING, false));
     addSetting(new TestbedSetting(DrawContactNormals, SettingType.DRAWING, false));
@@ -87,7 +90,7 @@ public class TestbedSettings {
     addSetting(new TestbedSetting(DrawFrictionImpulses, SettingType.DRAWING, false));
     addSetting(new TestbedSetting(DrawCOMs, SettingType.DRAWING, false));
     addSetting(new TestbedSetting(DrawStats, SettingType.DRAWING, false));
-    addSetting(new TestbedSetting(DrawHelp, SettingType.DRAWING, true));
+    addSetting(new TestbedSetting(DrawHelp, SettingType.DRAWING, false));
     addSetting(new TestbedSetting(DrawTree, SettingType.DRAWING, false));
   }
 

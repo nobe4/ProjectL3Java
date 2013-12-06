@@ -51,10 +51,10 @@ public class TestbedFrame extends JFrame {
     model = argModel;
     model.setDebugDraw(argPanel.getDebugDraw());
     controller = new TestbedController(model, argPanel, behavior);
-    //side = new TestbedSidePanel(model, controller);
+    side = new TestbedSidePanel(model, controller);
     
     add((Component) argPanel, "Center");
-    //add(new JScrollPane(side), "East");
+    add(new JScrollPane(side), "East");
     pack();
 
     controller.playTest(0);

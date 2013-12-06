@@ -23,18 +23,19 @@
  ******************************************************************************/
 package org.jbox2d.testbed.framework;
 
-import java.util.Vector;
-
-import javax.swing.DefaultComboBoxModel;
-
 import org.jbox2d.callbacks.DebugDraw;
 import org.jbox2d.common.Vec2;
+
+import javax.swing.*;
+import java.util.Vector;
 
 /**
  * Model for the testbed
  * 
  * @author Daniel
  */
+
+// only used for getting and setting configurations
 public class TestbedModel {
 
   private final DefaultComboBoxModel tests = new DefaultComboBoxModel();

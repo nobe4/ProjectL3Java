@@ -27,6 +27,9 @@ package org.jbox2d.testbed.framework;
  * Defines a setting used in the testbed.
  * @author Daniel Murphy
  */
+
+// ok
+
 public class TestbedSetting {
   
   /**

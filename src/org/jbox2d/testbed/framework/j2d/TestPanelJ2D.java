@@ -23,23 +23,6 @@
  ******************************************************************************/
 package org.jbox2d.testbed.framework.j2d;
 
-import java.awt.AWTError;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-
-import javax.swing.JPanel;
-
 import org.jbox2d.callbacks.DebugDraw;
 import org.jbox2d.common.Mat22;
 import org.jbox2d.common.OBBViewportTransform;
@@ -50,10 +33,15 @@ import org.jbox2d.testbed.framework.TestbedTest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
 /**
  * @author Daniel Murphy
  */
 @SuppressWarnings("serial")
+// panel for the test render
 public class TestPanelJ2D extends JPanel implements TestbedPanel {
   private static final Logger log = LoggerFactory.getLogger(TestPanelJ2D.class);
 

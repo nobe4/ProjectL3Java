@@ -23,9 +23,6 @@
  ******************************************************************************/
 package org.jbox2d.testbed.tests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import org.jbox2d.collision.shapes.CircleShape;
 import org.jbox2d.collision.shapes.MassData;
 import org.jbox2d.collision.shapes.PolygonShape;
@@ -38,6 +35,9 @@ import org.jbox2d.dynamics.BodyType;
 import org.jbox2d.dynamics.FixtureDef;
 import org.jbox2d.testbed.framework.TestbedSettings;
 import org.jbox2d.testbed.framework.TestbedTest;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 // TODO make this liquid usable for developers
 /**
@@ -236,7 +236,6 @@ public class LiquidTest extends TestbedTest {
 		
 		Body ground = null;
 		{
-
 			BodyDef bd = new BodyDef();
 			bd.position.set(0.0f, 0.0f);
 			ground = getWorld().createBody(bd);
@@ -251,8 +250,6 @@ public class LiquidTest extends TestbedTest {
 			shape.setAsBox(0.5f, 50.0f,new Vec2(5.0f,0.0f),0.0f);
 			ground.createFixture(shape, 0);
 			
-			
-			
 			shape.setAsBox(0.5f,3.0f,new Vec2(-8.0f,0.0f),0.0f);
 			ground.createFixture(shape, 0);
 			
@@ -263,7 +260,6 @@ public class LiquidTest extends TestbedTest {
 			cd.m_radius = 0.5f;
 			cd.m_p.set(-0.5f,-4.0f);
 			ground.createFixture(cd, 0);
-			
 		}
 		
 		liquid = new Body[nParticles];
@@ -306,7 +302,7 @@ public class LiquidTest extends TestbedTest {
 		bodyDef.position = new Vec2(0.0f,25.0f);
 		bodyDef.type = BodyType.DYNAMIC;
 		bod = getWorld().createBody(bodyDef);
-		bod.createFixture(polyDef, 1f);
+		bod.createFixture(polyDef, 5f);
 	}
 	
 	// IF YOU CHANGE THIS change the corresponding value in World
@@ -317,19 +313,20 @@ public class LiquidTest extends TestbedTest {
 	@Override
 	public void step(TestbedSettings settings) {
 		super.step(settings);
-    float hz = settings.getSetting(TestbedSettings.Hz).value;
+        float hz = settings.getSetting(TestbedSettings.Hz).value;
 		float dt = 1.0f/hz;
 		
-		int n = 1;
+		int n = 2;
 		for (int i=0; i<n; ++i) {
 			hashLocations();
-			applyLiquidConstraint(dt*n);
-		}
-		dampenLiquid();
-		
+            applyLiquidConstraint(dt*n);
+        }
+
+        dampenLiquid();
+
 		checkBounds();
-		
-		//System.out.println(m_getWorld().getGroundBody().getXForm());
+
+        //System.out.println(m_getWorld().getGroundBody().getXForm());
 	}
 	
 	private void checkBounds() {

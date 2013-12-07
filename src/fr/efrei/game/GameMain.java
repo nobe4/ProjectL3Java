@@ -24,6 +24,7 @@ public class GameMain {
         }
         GameModel model = new GameModel();
         GamePanel panel = new TestPanelJ2D(model);
+        GameList.populateModel(model);
         JFrame game = new GameFrame(model, panel, GameController.UpdateBehavior.UPDATE_CALLED);
         game.setVisible(true);
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -15,7 +15,7 @@ import java.util.Vector;
  */
 public class GameModel {
     private final DefaultComboBoxModel tests = new DefaultComboBoxModel();
-//    private final GameSettings settings = new GameSettings();
+    private final GameSettings settings = new GameSettings();
 
     private final Vec2 mouse = new Vec2();
     private final Vector<TestChangedListener> listeners = new Vector<TestChangedListener>();
@@ -161,9 +161,9 @@ public class GameModel {
         return tests;
     }
 
-//    public GameSettings getSettings() {
-//        return settings;
-//    }
+    public GameSettings getSettings() {
+        return settings;
+    }
 
     public class ListItem {
         public String category;

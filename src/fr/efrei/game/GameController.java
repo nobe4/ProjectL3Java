@@ -173,7 +173,7 @@ public class GameController implements Runnable {
 
     protected void update() {
         if (currTest != null && updateBehavior == UpdateBehavior.UPDATE_CALLED) {
-//            currTest.update();
+            currTest.update();
         }
     }
 
@@ -218,14 +218,14 @@ public class GameController implements Runnable {
         if (argIndex == -1) {
             return;
         }
-//        while (!model.isTestAt(argIndex)) {
-//            if (argIndex + 1 < model.getTestsSize()) {
-//                argIndex++;
-//            } else {
-//                return;
-//            }
-//        }
-//        model.setCurrTestIndex(argIndex);
+        while (!model.isTestAt(argIndex)) {
+            if (argIndex + 1 < model.getTestsSize()) {
+                argIndex++;
+            } else {
+                return;
+            }
+        }
+        model.setCurrTestIndex(argIndex);
     }
 
     public void setFrameRate(int fps) {

@@ -1,20 +1,16 @@
 package fr.efrei.game;
 
-import org.jbox2d.callbacks.ContactImpulse;
 import org.jbox2d.callbacks.DebugDraw;
 import org.jbox2d.callbacks.QueryCallback;
 import org.jbox2d.collision.AABB;
 import org.jbox2d.collision.Collision;
-import org.jbox2d.collision.Manifold;
 import org.jbox2d.collision.shapes.CircleShape;
-import org.jbox2d.collision.shapes.Shape;
 import org.jbox2d.common.Color3f;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.*;
-import org.jbox2d.dynamics.contacts.Contact;
-import org.jbox2d.dynamics.joints.Joint;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 enum QueueItemType {
@@ -43,27 +39,29 @@ public abstract class GameTest
     //    private static final Logger log = LoggerFactory.getLogger(GameTest.class);
 //
 //    // keep these static so we don't have to recreate them every time
-//    public final static ContactPoint[] points = new ContactPoint[MAX_CONTACT_POINTS];
-//    static {
-//        for (int i = 0; i < MAX_CONTACT_POINTS; i++) {
-//            points[i] = new ContactPoint();
-//        }
-//    }
+    public final static ContactPoint[] points = new ContactPoint[MAX_CONTACT_POINTS];
+
+    static {
+        for (int i = 0; i < MAX_CONTACT_POINTS; i++) {
+            points[i] = new ContactPoint();
+        }
+    }
+
     private final Color3f color1 = new Color3f(.3f, .95f, .3f);
     private final Color3f color2 = new Color3f(.3f, .3f, .95f);
     private final Color3f color3 = new Color3f(.9f, .9f, .9f);
     private final Color3f color4 = new Color3f(.6f, .61f, 1);
 //    protected DestructionListener destructionListener;
 //
-//    private final LinkedList<QueueItem> inputQueue;
-//
+private final LinkedList<QueueItem> inputQueue;
+    //
 //    private String title = null;
-//    protected int m_textLine;
-//    private final LinkedList<String> textList = new LinkedList<String>();
-//
-//    private float cachedCameraScale;
-//    private final Vec2 cachedCameraPos = new Vec2();
-//    private boolean hasCachedCamera = false;
+    protected int m_textLine;
+    private final LinkedList<String> textList = new LinkedList<String>();
+    //
+    private float cachedCameraScale;
+    private final Vec2 cachedCameraPos = new Vec2();
+    private boolean hasCachedCamera = false;
 //
 //    private JbSerializer serializer;
 //    private JbDeserializer deserializer;
@@ -72,9 +70,9 @@ public abstract class GameTest
 //
 //    private boolean savePending, loadPending, resetPending = false;
 
-    //    public GameTest() {
-////        inputQueue = new LinkedList<QueueItem>();
-////        serializer = new PbSerializer(this, new SignerAdapter(this) {
+    public GameTest() {
+        inputQueue = new LinkedList<QueueItem>();
+//        serializer = new PbSerializer(this, new SignerAdapter(this) {
 //            @Override
 //            public Long getTag(Body argBody) {
 //                if (isSaveLoadEnabled()) {
@@ -123,7 +121,8 @@ public abstract class GameTest
 //                super.processJoint(argJoint, argTag);
 //            }
 //        });
-//    }
+    }
+
     private final Color3f color5 = new Color3f(.9f, .9f, .3f);
     private final Color3f mouseColor = new Color3f(0f, 1f, 0f);
     private final Vec2 p1 = new Vec2();
@@ -171,30 +170,31 @@ public abstract class GameTest
 //        return bomb;
 //    }
 //
-//    public float getCachedCameraScale() {
-//        return cachedCameraScale;
-//    }
-//
-//    public void setCachedCameraScale(float cachedCameraScale) {
-//        this.cachedCameraScale = cachedCameraScale;
-//    }
-//
-//    public Vec2 getCachedCameraPos() {
-//        return cachedCameraPos;
-//    }
-//
-//    public void setCachedCameraPos(Vec2 argPos) {
-//        cachedCameraPos.set(argPos);
-//    }
-//
-//    public boolean isHasCachedCamera() {
-//        return hasCachedCamera;
-//    }
-//
-//    public void setHasCachedCamera(boolean hasCachedCamera) {
-//        this.hasCachedCamera = hasCachedCamera;
-//    }
-//
+    public float getCachedCameraScale() {
+        return cachedCameraScale;
+    }
+
+    public void setCachedCameraScale(float cachedCameraScale) {
+        this.cachedCameraScale = cachedCameraScale;
+    }
+
+    public Vec2 getCachedCameraPos() {
+        return cachedCameraPos;
+    }
+
+    public void setCachedCameraPos(Vec2 argPos) {
+        cachedCameraPos.set(argPos);
+    }
+
+    public boolean isHasCachedCamera() {
+        return hasCachedCamera;
+    }
+
+    public void setHasCachedCamera(boolean hasCachedCamera) {
+        this.hasCachedCamera = hasCachedCamera;
+    }
+
+    //
 //    public boolean isDialogOnSaveLoadErrors() {
 //        return dialogOnSaveLoadErrors;
 //    }
@@ -314,17 +314,17 @@ public abstract class GameTest
      * @param argPos
      * @param scale
      */
-//    public void setCamera(Vec2 argPos, float scale) {
-//        model.getDebugDraw().setCamera(argPos.x, argPos.y, scale);
-//        hasCachedCamera = true;
-//        cachedCameraScale = scale;
-//        cachedCameraPos.set(argPos);
-//    }
+    public void setCamera(Vec2 argPos, float scale) {
+        model.getDebugDraw().setCamera(argPos.x, argPos.y, scale);
+        hasCachedCamera = true;
+        cachedCameraScale = scale;
+        cachedCameraPos.set(argPos);
+    }
 //    private final PointState[] state1 = new PointState[Settings.maxManifoldPoints];
 //    private final PointState[] state2 = new PointState[Settings.maxManifoldPoints];
 //    private final WorldManifold worldManifold = new WorldManifold();
 
-//    public void update() {
+    public void update() {
 //        if (resetPending) {
 //            _reset();
 //            resetPending = false;
@@ -344,19 +344,19 @@ public abstract class GameTest
 //            model.getDebugDraw().drawString(model.getPanelWidth() / 2, 15, title, Color3f.WHITE);
 //            m_textLine += 15;
 //        }
-//
-//        // process our input
-//        if (!inputQueue.isEmpty()) {
-//            synchronized (inputQueue) {
-//                while (!inputQueue.isEmpty()) {
-//                    QueueItem i = inputQueue.pop();
-//                    switch (i.type) {
-//                        case KeyPressed:
-//                            keyPressed(i.c, i.code);
-//                            break;
-//                        case KeyReleased:
-//                            keyReleased(i.c, i.code);
-//                            break;
+
+        // process our input
+        if (!inputQueue.isEmpty()) {
+            synchronized (inputQueue) {
+                while (!inputQueue.isEmpty()) {
+                    QueueItem i = inputQueue.pop();
+                    switch (i.type) {
+                        case KeyPressed:
+                            keyPressed(i.c, i.code);
+                            break;
+                        case KeyReleased:
+                            keyReleased(i.c, i.code);
+                            break;
 //                        case MouseDown:
 //                            mouseDown(i.p);
 //                            break;
@@ -369,13 +369,14 @@ public abstract class GameTest
 //                        case ShiftMouseDown:
 //                            shiftMouseDown(i.p);
 //                            break;
-//                    }
-//                }
-//            }
-//        }
-//
-//        step(model.getSettings());
-//    }
+                    }
+                }
+            }
+        }
+
+        step(model.getSettings());
+    }
+
     /**
      * Only visible for compatibility. Should use {@link #getWorld()} instead.
      */
@@ -388,9 +389,9 @@ public abstract class GameTest
 //    private boolean bombSpawning = false;
 //
 //    private final Vec2 mouseWorld = new Vec2();
-//    private int pointCount;
-//    private int stepCount;
-//
+    private int pointCount;
+    private int stepCount;
+    //
     private GameModel model;
 
     public void init(GameModel argModel) {
@@ -420,7 +421,7 @@ public abstract class GameTest
     }
 
     public void init(World argWorld, boolean argDeserialized) {
-//        pointCount = 0;
+        pointCount = 0;
 //        stepCount = 0;
 //        bombSpawning = false;
 
@@ -428,11 +429,11 @@ public abstract class GameTest
 //        argWorld.setContactListener(this);
         argWorld.setDebugDraw(model.getDebugDraw());
 
-//        if (hasCachedCamera) {
-//            setCamera(cachedCameraPos, cachedCameraScale);
-//        } else {
-//            setCamera(getDefaultCameraPos(), getDefaultCameraScale());
-//        }
+        if (hasCachedCamera) {
+            setCamera(cachedCameraPos, cachedCameraScale);
+        } else {
+            setCamera(getDefaultCameraPos(), getDefaultCameraScale());
+        }
 //        setTitle(getTestName());
 
         initTest(argDeserialized);
@@ -478,108 +479,108 @@ public abstract class GameTest
 // Fonction qui semble faire pas mal de trucs importants par rapport à l'affichage
 //****
 
-//    public synchronized void step(GameSettings settings) {
-//        float hz = settings.getSetting(GameSettings.Hz).value;
-//        float timeStep = hz > 0f ? 1f / hz : 0;
-//        if (settings.singleStep && !settings.pause) {
-//            settings.pause = true;
-//        }
-//
-//        final DebugDraw debugDraw = model.getDebugDraw();
-//        if (settings.pause) {
-//            if (settings.singleStep) {
-//                settings.singleStep = false;
-//            } else {
-//                timeStep = 0;
-//            }
-//
-//            debugDraw.drawString(5, m_textLine, "****PAUSED****", Color3f.WHITE);
-//            m_textLine += 15;
-//        }
-//
-//        int flags = 0;
-//        flags += settings.getSetting(GameSettings.DrawShapes).enabled ? DebugDraw.e_shapeBit : 0;
-//        flags += settings.getSetting(GameSettings.DrawJoints).enabled ? DebugDraw.e_jointBit : 0;
-//        flags += settings.getSetting(GameSettings.DrawAABBs).enabled ? DebugDraw.e_aabbBit : 0;
-//        flags +=
-//                settings.getSetting(GameSettings.DrawCOMs).enabled ? DebugDraw.e_centerOfMassBit : 0;
-//        flags += settings.getSetting(GameSettings.DrawTree).enabled ? DebugDraw.e_dynamicTreeBit : 0;
-//        debugDraw.setFlags(flags);
-//
-//        m_world.setAllowSleep(settings.getSetting(GameSettings.AllowSleep).enabled);
-//        m_world.setWarmStarting(settings.getSetting(GameSettings.WarmStarting).enabled);
-//        m_world.setSubStepping(settings.getSetting(GameSettings.SubStepping).enabled);
-//        m_world.setContinuousPhysics(settings.getSetting(GameSettings.ContinuousCollision).enabled);
-//
-//        pointCount = 0;
-//
-//        m_world.step(timeStep, settings.getSetting(GameSettings.VelocityIterations).value,
-//                settings.getSetting(GameSettings.PositionIterations).value);
-//
-//        m_world.drawDebugData();
-//
+    public synchronized void step(GameSettings settings) {
+        float hz = settings.getSetting(GameSettings.Hz).value;
+        float timeStep = hz > 0f ? 1f / hz : 0;
+        if (settings.singleStep && !settings.pause) {
+            settings.pause = true;
+        }
+
+        final DebugDraw debugDraw = model.getDebugDraw();
+        if (settings.pause) {
+            if (settings.singleStep) {
+                settings.singleStep = false;
+            } else {
+                timeStep = 0;
+            }
+
+            debugDraw.drawString(5, m_textLine, "****PAUSED****", Color3f.WHITE);
+            m_textLine += 15;
+        }
+
+        int flags = 0;
+        flags += settings.getSetting(GameSettings.DrawShapes).enabled ? DebugDraw.e_shapeBit : 0;
+        flags += settings.getSetting(GameSettings.DrawJoints).enabled ? DebugDraw.e_jointBit : 0;
+        flags += settings.getSetting(GameSettings.DrawAABBs).enabled ? DebugDraw.e_aabbBit : 0;
+        flags +=
+                settings.getSetting(GameSettings.DrawCOMs).enabled ? DebugDraw.e_centerOfMassBit : 0;
+        flags += settings.getSetting(GameSettings.DrawTree).enabled ? DebugDraw.e_dynamicTreeBit : 0;
+        debugDraw.setFlags(flags);
+
+        m_world.setAllowSleep(settings.getSetting(GameSettings.AllowSleep).enabled);
+        m_world.setWarmStarting(settings.getSetting(GameSettings.WarmStarting).enabled);
+        m_world.setSubStepping(settings.getSetting(GameSettings.SubStepping).enabled);
+        m_world.setContinuousPhysics(settings.getSetting(GameSettings.ContinuousCollision).enabled);
+
+        pointCount = 0;
+
+        m_world.step(timeStep, settings.getSetting(GameSettings.VelocityIterations).value,
+                settings.getSetting(GameSettings.PositionIterations).value);
+
+        m_world.drawDebugData();
+
 //        if (timeStep > 0f) {
 //            ++stepCount;
 //        }
-//
-//        if (settings.getSetting(GameSettings.DrawStats).enabled) {
-//            // Vec2.watchCreations = true;
-//            debugDraw.drawString(5, m_textLine, "Engine Info", color4);
-//            m_textLine += 15;
-//            debugDraw.drawString(5, m_textLine, "Framerate: " + model.getCalculatedFps(), Color3f.WHITE);
-//            m_textLine += 15;
-//            debugDraw.drawString(
-//                    5,
-//                    m_textLine,
-//                    "bodies/contacts/joints/proxies = " + m_world.getBodyCount() + "/"
-//                            + m_world.getContactCount() + "/" + m_world.getJointCount() + "/"
-//                            + m_world.getProxyCount(), Color3f.WHITE);
-//            m_textLine += 15;
+
+        if (settings.getSetting(GameSettings.DrawStats).enabled) {
+            // Vec2.watchCreations = true;
+            debugDraw.drawString(5, m_textLine, "Engine Info", color4);
+            m_textLine += 15;
+            debugDraw.drawString(5, m_textLine, "Framerate: " + model.getCalculatedFps(), Color3f.WHITE);
+            m_textLine += 15;
+            debugDraw.drawString(
+                    5,
+                    m_textLine,
+                    "bodies/contacts/joints/proxies = " + m_world.getBodyCount() + "/"
+                            + m_world.getContactCount() + "/" + m_world.getJointCount() + "/"
+                            + m_world.getProxyCount(), Color3f.WHITE);
+            m_textLine += 15;
 //            debugDraw.drawString(5, m_textLine, "World mouse position: " + mouseWorld.toString(),
 //                    Color3f.WHITE);
-//            m_textLine += 15;
-//
-//
-//            statsList.clear();
-//            Profile p = getWorld().getProfile();
-//            p.toDebugStrings(statsList);
-//
-//            for (String s : statsList) {
-//                debugDraw.drawString(5, m_textLine, s, Color3f.WHITE);
-//                m_textLine += 15;
-//            }
-//            m_textLine += 5;
-//        }
-//
-//        if (settings.getSetting(GameSettings.DrawHelp).enabled) {
-//            debugDraw.drawString(5, m_textLine, "Help", color4);
-//            m_textLine += 15;
-//            debugDraw.drawString(5, m_textLine, "Click and drag the left mouse button to move objects.",
-//                    Color3f.WHITE);
-//            m_textLine += 15;
-//            debugDraw.drawString(5, m_textLine, "Shift-Click to aim a bullet, or press space.",
-//                    Color3f.WHITE);
-//            m_textLine += 15;
-//            debugDraw.drawString(5, m_textLine,
-//                    "Click and drag the right mouse button to move the view.", Color3f.WHITE);
-//            m_textLine += 15;
-//            debugDraw.drawString(5, m_textLine, "Scroll to zoom in/out.", Color3f.WHITE);
-//            m_textLine += 15;
-//            debugDraw.drawString(5, m_textLine, "Press '[' or ']' to change tests, and 'r' to restart.",
-//                    Color3f.WHITE);
-//            m_textLine += 20;
-//        }
-//
-//        if (!textList.isEmpty()) {
-//            debugDraw.drawString(5, m_textLine, "Test Info", color4);
-//            m_textLine += 15;
-//            for (String s : textList) {
-//                debugDraw.drawString(5, m_textLine, s, Color3f.WHITE);
-//                m_textLine += 15;
-//            }
-//            textList.clear();
-//        }
-//
+            m_textLine += 15;
+
+
+            statsList.clear();
+            Profile p = getWorld().getProfile();
+            p.toDebugStrings(statsList);
+
+            for (String s : statsList) {
+                debugDraw.drawString(5, m_textLine, s, Color3f.WHITE);
+                m_textLine += 15;
+            }
+            m_textLine += 5;
+        }
+
+        if (settings.getSetting(GameSettings.DrawHelp).enabled) {
+            debugDraw.drawString(5, m_textLine, "Help", color4);
+            m_textLine += 15;
+            debugDraw.drawString(5, m_textLine, "Click and drag the left mouse button to move objects.",
+                    Color3f.WHITE);
+            m_textLine += 15;
+            debugDraw.drawString(5, m_textLine, "Shift-Click to aim a bullet, or press space.",
+                    Color3f.WHITE);
+            m_textLine += 15;
+            debugDraw.drawString(5, m_textLine,
+                    "Click and drag the right mouse button to move the view.", Color3f.WHITE);
+            m_textLine += 15;
+            debugDraw.drawString(5, m_textLine, "Scroll to zoom in/out.", Color3f.WHITE);
+            m_textLine += 15;
+            debugDraw.drawString(5, m_textLine, "Press '[' or ']' to change tests, and 'r' to restart.",
+                    Color3f.WHITE);
+            m_textLine += 20;
+        }
+
+        if (!textList.isEmpty()) {
+            debugDraw.drawString(5, m_textLine, "Test Info", color4);
+            m_textLine += 15;
+            for (String s : textList) {
+                debugDraw.drawString(5, m_textLine, s, Color3f.WHITE);
+                m_textLine += 15;
+            }
+            textList.clear();
+        }
+
 //        if (mouseJoint != null) {
 //            mouseJoint.getAnchorB(p1);
 //            Vec2 p2 = mouseJoint.getTarget();
@@ -590,41 +591,41 @@ public abstract class GameTest
 //        if (bombSpawning) {
 //            debugDraw.drawSegment(bombSpawnPoint, mouseWorld, Color3f.WHITE);
 //        }
-//
-//        if (settings.getSetting(GameSettings.DrawContactPoints).enabled) {
-//            final float k_impulseScale = 0.1f;
-//            final float axisScale = 0.3f;
-//
-//            for (int i = 0; i < pointCount; i++) {
-//
-//                ContactPoint point = points[i];
-//
-//                if (point.state == PointState.ADD_STATE) {
-//                    debugDraw.drawPoint(point.position, 10f, color1);
-//                } else if (point.state == PointState.PERSIST_STATE) {
-//                    debugDraw.drawPoint(point.position, 5f, color2);
-//                }
-//
-//                if (settings.getSetting(GameSettings.DrawContactNormals).enabled) {
-//                    p1.set(point.position);
-//                    p2.set(point.normal).mulLocal(axisScale).addLocal(p1);
-//                    debugDraw.drawSegment(p1, p2, color3);
-//
-//                } else if (settings.getSetting(GameSettings.DrawContactImpulses).enabled) {
-//                    p1.set(point.position);
-//                    p2.set(point.normal).mulLocal(k_impulseScale).mulLocal(point.normalImpulse).addLocal(p1);
-//                    debugDraw.drawSegment(p1, p2, color5);
-//                }
-//
-//                if (settings.getSetting(GameSettings.DrawFrictionImpulses).enabled) {
-//                    Vec2.crossToOutUnsafe(point.normal, 1, tangent);
-//                    p1.set(point.position);
-//                    p2.set(tangent).mulLocal(k_impulseScale).mulLocal(point.tangentImpulse).addLocal(p1);
-//                    debugDraw.drawSegment(p1, p2, color5);
-//                }
-//            }
-//        }
-//    }
+
+        if (settings.getSetting(GameSettings.DrawContactPoints).enabled) {
+            final float k_impulseScale = 0.1f;
+            final float axisScale = 0.3f;
+
+            for (int i = 0; i < pointCount; i++) {
+
+                ContactPoint point = points[i];
+
+                if (point.state == Collision.PointState.ADD_STATE) {
+                    debugDraw.drawPoint(point.position, 10f, color1);
+                } else if (point.state == Collision.PointState.PERSIST_STATE) {
+                    debugDraw.drawPoint(point.position, 5f, color2);
+                }
+
+                if (settings.getSetting(GameSettings.DrawContactNormals).enabled) {
+                    p1.set(point.position);
+                    p2.set(point.normal).mulLocal(axisScale).addLocal(p1);
+                    debugDraw.drawSegment(p1, p2, color3);
+
+                } else if (settings.getSetting(GameSettings.DrawContactImpulses).enabled) {
+                    p1.set(point.position);
+                    p2.set(point.normal).mulLocal(k_impulseScale).mulLocal(point.normalImpulse).addLocal(p1);
+                    debugDraw.drawSegment(p1, p2, color5);
+                }
+
+                if (settings.getSetting(GameSettings.DrawFrictionImpulses).enabled) {
+                    Vec2.crossToOutUnsafe(point.normal, 1, tangent);
+                    p1.set(point.position);
+                    p2.set(tangent).mulLocal(k_impulseScale).mulLocal(point.tangentImpulse).addLocal(p1);
+                    debugDraw.drawSegment(p1, p2, color5);
+                }
+            }
+        }
+    }
 
 //    public void queueShiftMouseDown(Vec2 p) {
 //        synchronized (inputQueue) {

@@ -18,7 +18,7 @@ public class GameFrame extends JFrame {
         panel = new GamePanel();
         controller = new GameController(); // todo leave the controller for the frame or put it inside the panel/model ?
 
-        this.add((Component) panel);
+        this.add(panel);
 
         this.pack();
     }

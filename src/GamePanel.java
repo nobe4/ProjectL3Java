@@ -21,4 +21,6 @@ public class GamePanel extends JPanel{
     private void updateSize(int width, int height) {
         draw.getViewportTranform().setExtents(width/2,height/2);
     }
+
+
 }

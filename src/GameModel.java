@@ -3,8 +3,12 @@
  */
 public class GameModel {
     private GameSettings settings;
+    private GameLevel level;
+    private Character heros;
 
     public GameModel() {
         settings = new GameSettings();
+        level = new GameLevel();
+        level.init();
     }
 }

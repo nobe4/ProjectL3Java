@@ -16,6 +16,7 @@ public class GameLevel {
     private Hashtable<String, GameObject> objects;
 
     void init() {
+
         //initialize world
         Vec2 gravity = new Vec2(0, -10f);
         world = new World(gravity);

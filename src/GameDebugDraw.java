@@ -7,8 +7,8 @@ import org.jbox2d.common.Vec2;
 /**
  * Created by padawan on 12/11/13.
  */
-public class MyDebugDraw extends DebugDraw{
-    public MyDebugDraw() {
+public class GameDebugDraw extends DebugDraw implements GameDraw {
+    public GameDebugDraw() {
         super(new OBBViewportTransform());
         viewportTransform.setYFlip(true); // up is y rising
     }

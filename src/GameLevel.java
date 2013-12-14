@@ -13,7 +13,7 @@ import java.util.Hashtable;
 public class GameLevel {
     private World world;
     private Body ground;
-    private Hashtable objects;
+    private Hashtable<String, GameObject> objects;
 
     void init() {
         //initialize world

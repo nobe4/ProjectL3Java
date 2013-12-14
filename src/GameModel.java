@@ -4,7 +4,7 @@
 public class GameModel {
     private GameSettings settings;
     private GameLevel level;
-    private Character heros;
+    private GameHeros heros;
 
     public GameModel() {
         settings = new GameSettings();

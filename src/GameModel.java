@@ -12,5 +12,27 @@ public class GameModel {
         level.init();
     }
 
+    public GameSettings getSettings() {
+        return settings;
+    }
 
+    public void setSettings(GameSettings settings) {
+        this.settings = settings;
+    }
+
+    public GameLevel getLevel() {
+        return level;
+    }
+
+    public void setLevel(GameLevel level) {
+        this.level = level;
+    }
+
+    public GameHeros getHeros() {
+        return heros;
+    }
+
+    public void setHeros(GameHeros heros) {
+        this.heros = heros;
+    }
 }

@@ -22,5 +22,7 @@ public class GameFrame extends JFrame {
         this.add((Component) panel);
 
         this.pack();
+        controller.start();
+
     }
 }

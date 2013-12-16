@@ -5,6 +5,7 @@ import java.awt.*;
  * Created by padawan on 12/11/13.
  */
 
+
 public class GamePanel extends JPanel {
 
     private int INIT_WIDTH = 600;
@@ -18,10 +19,11 @@ public class GamePanel extends JPanel {
     private int panelWidth;
     private int panelHeight;
 
+
     public GamePanel(boolean debug) {
-        this.setBackground(Color.cyan);
+        this.setBackground(Color.black);
         if (debug == true)
-            draw = new GameDebugDraw();
+            draw = new GameDebugDraw(this);
         else
             draw = new GameClassicDraw();
         this.updateSize(INIT_WIDTH, INIT_HEIGHT);
@@ -54,6 +56,9 @@ public class GamePanel extends JPanel {
     }
 
 
+    /**
+     * Seems to update the current image shown in the panel
+     */
     public void paintScreen() {
         try {
             Graphics g = this.getGraphics();
@@ -65,6 +70,10 @@ public class GamePanel extends JPanel {
         } catch (AWTError e) {
 //            log.error("Graphics context error", e);
         }
+    }
+
+    public Graphics2D getDBGraphics() {
+        return dbg;
     }
 }
 

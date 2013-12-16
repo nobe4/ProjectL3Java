@@ -50,13 +50,18 @@ public class GameController implements Runnable{
      * - Simulate world
      */
     public void run() {
-
+        World world = model.getLevel().getWorld();
         while(animating)
         {
+            // panel.render only returns false ...
             if (panel.render()) { //In the example, the function only draw the dark background
                 update();   //It makes all the important stuff (see jdoc)
                 panel.paintScreen(); //
+
+                // we never pass here, because no display is done
+                System.out.println(world.getBodyCount());
             }
+
         }
     }
 
@@ -78,6 +83,8 @@ public class GameController implements Runnable{
         World world = model.getLevel().getWorld();
         world.step(1f / 60f, 8, 3);
         world.drawDebugData();
+
+        System.out.println(world.getBodyCount());
 
     }
 }

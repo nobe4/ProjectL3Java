@@ -10,14 +10,11 @@ public class GamePanel extends JPanel {
 
     private int INIT_WIDTH = 600;
     private int INIT_HEIGHT = 400;
-
     private GameDraw draw;
     private Image dbImage = null;
     private Graphics2D dbg = null;
-
-
-    private int panelWidth;
-    private int panelHeight;
+    private int panelWidth = INIT_WIDTH; // correct here : size was never initialised
+    private int panelHeight = INIT_HEIGHT;  // correct here : size was never initialised
 
 
     public GamePanel(boolean debug) {
@@ -38,13 +35,17 @@ public class GamePanel extends JPanel {
     //todo Grab from jbox2d ;). Really need to understand the exact behavior
 
     public boolean render() {
+
         if (dbImage == null) {
+            System.err.println("dbImage is null, creating a new one");
 //            log.debug("dbImage is null, creating a new one");
             if (panelWidth <= 0 || panelHeight <= 0) {
+                System.err.println("wrong dims");
                 return false;
             }
             dbImage = createImage(panelWidth, panelHeight);
             if (dbImage == null) {
+                System.err.println("dbImage is still null, ignoring render call");
 //                log.error("dbImage is still null, ignoring render call");
                 return false;
             }
@@ -54,7 +55,6 @@ public class GamePanel extends JPanel {
         dbg.fillRect(0, 0, panelWidth, panelHeight);
         return true;
     }
-
 
     /**
      * Seems to update the current image shown in the panel

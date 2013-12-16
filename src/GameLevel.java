@@ -21,6 +21,7 @@ public class GameLevel {
         Vec2 gravity = new Vec2(0, -10f);
         world = new World(gravity);
 
+
         //Ground definition
         {
 
@@ -42,5 +43,29 @@ public class GameLevel {
             ground.createFixture(fd);
         }
         //Add other stuff here
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+    public Body getGround() {
+        return ground;
+    }
+
+    public void setGround(Body ground) {
+        this.ground = ground;
+    }
+
+    public Hashtable<String, GameObject> getObjects() {
+        return objects;
+    }
+
+    public void setObjects(Hashtable<String, GameObject> objects) {
+        this.objects = objects;
     }
 }

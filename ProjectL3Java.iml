@@ -12,8 +12,12 @@
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../jbox2d-2.2.1.1/jbox2d-library/target/jbox2d-library-2.2.1.1.jar!/" />
         </CLASSES>
-        <JAVADOC />
-        <SOURCES />
+        <JAVADOC>
+          <root url="jar://$MODULE_DIR$/../jbox2d-2.2.1.1/jbox2d-library/target/jbox2d-library-2.2.1.1-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../jbox2d-2.2.1.1/jbox2d-library/target/jbox2d-library-2.2.1.1-sources.jar!/" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>

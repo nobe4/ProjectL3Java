@@ -62,4 +62,14 @@ public class GameClassicDraw implements GameDraw {
     public void drawString(float v, float v2, String s, Color3f color3f) {
 
     }
+
+    /**
+     * To be implemented
+     *
+     * @return
+     */
+    @Override
+    public Graphics2D getGraphics() {
+        return null;
+    }
 }

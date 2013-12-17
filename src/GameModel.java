@@ -1,3 +1,5 @@
+import org.jbox2d.callbacks.DebugDraw;
+
 /**
  * Created by padawan on 12/11/13.
  */
@@ -34,5 +36,16 @@ public class GameModel {
 
     public void setHeros(GameHeros heros) {
         this.heros = heros;
+    }
+
+    public void setDebugDraw(GamePanel panel) {
+        System.out.println("setDebugDraw : Enter");
+        // todo Could be better to grab settings instead of the current way
+        DebugDraw dbSettings = new GameDebugDraw(panel);
+        dbSettings.setFlags(DebugDraw.e_shapeBit);
+
+        //Set debug on world
+        level.getWorld().setDebugDraw(dbSettings);
+        System.out.println("setDebugDraw  : End");
     }
 }

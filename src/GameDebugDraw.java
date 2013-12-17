@@ -19,6 +19,12 @@ public class GameDebugDraw extends DebugDraw implements GameDraw {
     Vec2 sp2 = new Vec2();
     private final Vec2Array vec2Array = new Vec2Array();
 
+    // todo Not sure to keep like this
+    public GameDebugDraw() {
+        super(null);
+        panel = null;
+    }
+
     public GameDebugDraw(GamePanel argPanel) {
         super(new OBBViewportTransform());
         viewportTransform.setYFlip(true); // up is y rising

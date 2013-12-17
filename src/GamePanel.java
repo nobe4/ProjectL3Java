@@ -16,15 +16,19 @@ public class GamePanel extends JPanel {
     private Graphics2D dbg = null;
 
 
-    private int panelWidth;
-    private int panelHeight;
+    private int panelWidth = INIT_WIDTH;
+    private int panelHeight = INIT_HEIGHT;
 
 
     public GamePanel(boolean debug) {
         this.setBackground(Color.black);
-        if (debug == true)
+        if (debug == true) {
             draw = new GameDebugDraw(this);
-        else
+            //1-Send to model to "setDebugDraw()" on world
+
+            //2-
+
+        } else
             draw = new GameClassicDraw();
         this.updateSize(INIT_WIDTH, INIT_HEIGHT);
         this.setPreferredSize(new Dimension(INIT_WIDTH, INIT_HEIGHT));
@@ -60,6 +64,7 @@ public class GamePanel extends JPanel {
      * Seems to update the current image shown in the panel
      */
     public void paintScreen() {
+        System.out.println("PaintScreen  : Enter");
         try {
             Graphics g = this.getGraphics();
             if ((g != null) && dbImage != null) {

@@ -16,7 +16,7 @@ public class GameLevel {
     private Hashtable<String, GameObject> objects;
 
     void init() {
-
+        System.out.println("init Level  : Enter");
         //initialize world
         Vec2 gravity = new Vec2(0, -10f);
         world = new World(gravity);
@@ -43,6 +43,7 @@ public class GameLevel {
             ground.createFixture(fd);
         }
         //Add other stuff here
+        System.out.println("init Level  : End");
     }
 
     public World getWorld() {

@@ -3,7 +3,7 @@ import org.jbox2d.dynamics.World;
 /**
  * Created by padawan on 12/11/13.
  */
-public class GameController implements Runnable{
+public class GameController implements Runnable {
 
     private GameLevel level = null;
 
@@ -26,10 +26,10 @@ public class GameController implements Runnable{
      * - Load needed resources
      */
     public synchronized void start() {
-        if(animating != true)
-        {
+        System.out.println("start render loop  : Enter");
+        if (animating != true) {
             animating = true;
-            if(animationThread == null)
+            if (animationThread == null)
                 animationThread = new Thread(this, "Game");
             animationThread.start();
         }
@@ -51,9 +51,10 @@ public class GameController implements Runnable{
      */
     public void run() {
 
-        while(animating)
-        {
+        System.out.println("run loop  : Enter");
+        while (animating) {
             if (panel.render()) { //In the example, the function only draw the dark background
+                System.out.println("hello");
                 update();   //It makes all the important stuff (see jdoc)
                 panel.paintScreen(); //
             }

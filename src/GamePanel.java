@@ -14,7 +14,7 @@ public class GamePanel extends JPanel {
     private Image dbImage = null;
     private Graphics2D dbg = null;
     private int panelWidth = INIT_WIDTH; // correct here : size was never initialised
-    private int panelHeight = INIT_HEIGHT;  // correct here : size was never initialised
+    private int panelHeight = INIT_HEIGHT;
 
 
     public GamePanel(boolean debug) {
@@ -29,7 +29,6 @@ public class GamePanel extends JPanel {
 
     private void updateSize(int width, int height) {
 //        draw.getViewportTranform().setExtents(width / 2, height / 2);
-
     }
 
     //todo Grab from jbox2d ;). Really need to understand the exact behavior

@@ -17,6 +17,11 @@ public class GameController implements Runnable{
         this.panel = panel;
         this.model = model;
         level = model.getLevel();
+
+        GameDebugDraw debugDraw = new GameDebugDraw(this.panel);
+        debugDraw.setFlags(0x0001);
+
+        this.model.getLevel().getWorld().setDebugDraw(debugDraw); // clarify add the debug draw to the controller
     }
 
     /**
@@ -50,16 +55,11 @@ public class GameController implements Runnable{
      * - Simulate world
      */
     public void run() {
-        World world = model.getLevel().getWorld();
         while(animating)
         {
-            // panel.render only returns false ...
             if (panel.render()) { //In the example, the function only draw the dark background
                 update();   //It makes all the important stuff (see jdoc)
                 panel.paintScreen(); //
-
-                // we never pass here, because no display is done
-                System.out.println(world.getBodyCount());
             }
 
         }
@@ -76,15 +76,14 @@ public class GameController implements Runnable{
      * Note : the update function may also update the camera.
      */
     private void update() {
-        //todo manage inputs
-
-        //Render the new world state (thanks to step function of World class)
+        // todo manage inputs
+        // Render the new world state (thanks to step function of World class)
 
         World world = model.getLevel().getWorld();
         world.step(1f / 60f, 8, 3);
         world.drawDebugData();
 
-        System.out.println(world.getBodyCount());
+        // System.out.println(world.getBodyCount());
 
     }
 }

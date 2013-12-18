@@ -1,9 +1,5 @@
-import org.jbox2d.collision.AABB;
-import org.jbox2d.collision.shapes.EdgeShape;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
-import org.jbox2d.dynamics.BodyDef;
-import org.jbox2d.dynamics.FixtureDef;
 import org.jbox2d.dynamics.World;
 
 import java.util.Hashtable;
@@ -13,44 +9,99 @@ import java.util.Hashtable;
  */
 public class GameLevel {
     private World world = null;
-    private Body ground;
+    private Body ground, box;
     private Hashtable<String, GameObject> objects;
 
     public GameLevel() {/*do nothing*/}
 
-
-    void initWorld(){
-        Vec2 gravity = new Vec2(0, -10f);
+    void initWorld() {
+        Vec2 gravity = new Vec2(0, -9.8f);
         world = new World(gravity);
     }
 
     void init() {
         //initialize world
-        if(world == null) initWorld();
+        if (world == null) initWorld();
 
-        //Ground definition
+        //parseJSON("level1.json");
+
+        ObjectCreator.createObject(world);
+        for(int i = 0; i < 10; i++){
+            GamePlatform.create(world,(i*50) + 100,(i*50) + 100,10,100);
+        }
+
+       /* //Ground definition
         {
-
-            BodyDef bd = new BodyDef();
+                BodyDef groundDef = new BodyDef();
+                groundDef.type = BodyType.STATIC;
 
             //add body to world
-            ground = world.createBody(bd);
-            FixtureDef fd = new FixtureDef();
+            ground = world.createBody(groundDef);
+            FixtureDef fixtureGround = new FixtureDef();
 
-            EdgeShape shape = new EdgeShape();
-            shape.set(new Vec2(50.0f, -10.0f), new Vec2(100.0f, -30.0f));
-
+            EdgeShape shapeGround = new EdgeShape();
+            shapeGround.set(new Vec2(50.0f, -100.0f), new Vec2(100.0f, -300.0f));
 
             //set properties
-            fd.shape = shape;
-            fd.density = 0.0f;
-            fd.friction = 0.6f;
+            fixtureGround.shape = shapeGround;
+            fixtureGround.density = 0.0f;
+            fixtureGround.friction = 0.6f;
 
             //apply to body
-            ground.createFixture(fd);
+            ground.createFixture(fixtureGround);
         }
-        //Add other stuff here
+
+        //box def
+        {
+            BodyDef boxDef = new BodyDef();
+            boxDef.type = BodyType.DYNAMIC;
+            boxDef.position.set(300f,-50f);
+            boxDef.angle = 45f*0.0174532925199432957f;
+
+            box = world.createBody(boxDef);
+
+            PolygonShape shapeBox = new PolygonShape();
+            shapeBox.setAsBox(10f, 10f);
+
+            FixtureDef fixtureBox = new FixtureDef();
+            fixtureBox.density = 1f;
+            fixtureBox.shape = shapeBox;
+
+            box.createFixture(fixtureBox);
+
+            box.setLinearVelocity(new Vec2(-50f,5f));
+           // box.setAngularVelocity(-90f*0.0174532925199432957f);
+        }
+        //Add other stuff here*/
     }
+
+   /* private void parseJSON(String path) {
+        File file = new File("./levels/level1.json");
+        FileInputStream fis = null;
+        String s = null;
+        byte[] data = new byte[(int) file.length()];
+        try {
+            fis = new FileInputStream(file);
+            fis.read(data);
+            fis.close();
+            s = new String(data, "UTF-8");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        JSONObject o = (JSONObject) JSONValue.parse(s);
+        System.out.println(o.toString());
+        JSONArray bodies = (JSONArray) o.get("bodies"); // get an array of all the bodies
+
+        for (Object body : bodies) {
+            ObjectCreator.createFromJSON((JSONObject) body, world);
+        }
+    }*/
 
     public World getWorld() {
         return world;

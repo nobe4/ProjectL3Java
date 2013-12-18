@@ -1,0 +1,30 @@
+{
+    "type" : "Level Game File",
+    "creators" : ["Rodyll","nobe4"],
+    "bodies" : [
+        {
+            "name" : "ground",
+            "type" : "basic",
+            "proprieties" : [
+                {
+                    "object" : "body",
+                    "type" : "static"
+                },{
+                    "object" : "shape",
+                    "type" : "edgeShape",
+                    "positions" : [ [50.0,-100.0],
+                    [100.0, -300.0]]
+                },w{
+                    "object" : "fixture",
+                    "density" : 0.0,
+                    "speed" : 0.6
+                }
+            ]
+        },
+        {
+            "name" : "mob1",
+            "type" : "mob",
+            "speed" : 10
+        }
+    ]
+}

@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by padawan on 12/11/13.
@@ -11,7 +12,7 @@ public class GameFrame extends JFrame {
 
     public GameFrame() {
         super("This is my Frame !");
-        //this.setLayout(new BorderLayout());
+        this.setLayout(new BorderLayout());
 
         model = new GameModel();
         panel = new GamePanel(true);

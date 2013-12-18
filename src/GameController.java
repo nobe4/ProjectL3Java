@@ -19,7 +19,12 @@ public class GameController implements Runnable{
         level = model.getLevel();
 
         GameDebugDraw debugDraw = new GameDebugDraw(this.panel);
-        debugDraw.setFlags(0x0001);
+        debugDraw.appendFlags(0x0001);
+       // debugDraw.appendFlags(0x0002);
+       // debugDraw.appendFlags(0x0004);
+       // debugDraw.appendFlags(0x0008);
+       // debugDraw.appendFlags(0x0010);
+       // debugDraw.appendFlags(0x0020);
 
         this.model.getLevel().getWorld().setDebugDraw(debugDraw); // clarify add the debug draw to the controller
     }
@@ -83,7 +88,7 @@ public class GameController implements Runnable{
         world.step(1f / 60f, 8, 3);
         world.drawDebugData();
 
-        // System.out.println(world.getBodyCount());
+       // System.out.println(world.getBodyCount());
 
     }
 }

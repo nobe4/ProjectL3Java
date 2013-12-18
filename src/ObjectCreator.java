@@ -7,15 +7,18 @@ import org.jbox2d.dynamics.*;
 
 public class ObjectCreator {
 
-    static public Body createObject(World w){
-        BodyDef bd = BodyDefCreator.defaultBodyDef();
-
-        FixtureDef f = FixtureDefCreator.defaultFixtureDef();
-
+    static public Body createObject(World w, FixtureDef f, BodyDef bd) {
         Body b = w.createBody(bd);
-
         b.createFixture(f);
         return b;
+    }
+
+    static public Body createObject(World w, FixtureDef f) {
+        return createObject(w, f, BodyDefCreator.defaultBodyDef());
+    }
+
+    static public Body createObject(World w) {
+        return createObject(w, FixtureDefCreator.defaultFixtureDef());
     }
 }
 
@@ -29,7 +32,8 @@ class ShapeCreator {
         Shape s = null;
 
         if (type == ShapeType.EDGE) s = createEdgeShape(); // todo add position
-        else if (type == ShapeType.POLYGON) s = createBoxShape(); // todo only handle boxes
+        else if (type == ShapeType.POLYGON)
+            s = createBoxShape((float) Math.random() * 10f + 10f, (float) Math.random() * 10f + 10f); // todo only handle boxes
         else if (type == ShapeType.CIRCLE) System.err.println("Not handled");
         else if (type == ShapeType.CHAIN) System.err.println("Not handled");
         else System.err.println("Not handled");
@@ -43,16 +47,16 @@ class ShapeCreator {
         return s;
     }
 
-    static private PolygonShape createBoxShape(){
+    static public Shape createBoxShape(float width, float heigh) {
         PolygonShape s = new PolygonShape();
-        s.setAsBox(10f, 10f);
+        s.setAsBox(heigh, width);
         return s;
     }
 }
 
 class FixtureDefCreator {
     static public FixtureDef defaultFixtureDef() {
-        return createFixtureDef(ShapeCreator.defaultShape(), 0f, 0f, 0f);
+        return createFixtureDef(ShapeCreator.defaultShape(), 0.8f, 0.2f, 1f);
     }
 
     // todo verify and make private
@@ -68,15 +72,19 @@ class FixtureDefCreator {
 
 class BodyDefCreator {
     static public BodyDef defaultBodyDef() {
-        return createBodyDef(BodyType.DYNAMIC, new Vec2(100f, -100f), 45);
+        return createBodyDef(BodyType.DYNAMIC, new Vec2((float) Math.random() * 100f + 100f, -(float) Math.random() * 10f - 100f), 45);
     }
 
-    static private BodyDef createBodyDef(BodyType t, Vec2 p, float a) {
+    static public BodyDef createBodyDef(BodyType t, Vec2 p, float a) {
         BodyDef b = new BodyDef();
         b.type = t;
         b.position = p;
         b.angle = a * 0.0174532925199432957f;
         return b;
+    }
+
+    static public BodyDef createBodyDef(BodyType t) {
+        return createBodyDef(t, new Vec2(100f, -100f), 45);
     }
 }
 

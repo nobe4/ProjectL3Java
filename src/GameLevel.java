@@ -26,9 +26,22 @@ public class GameLevel {
         //parseJSON("level1.json");
 
         ObjectCreator.createObject(world);
-        for(int i = 0; i < 10; i++){
-            GamePlatform.create(world,(i*50) + 100,(i*50) + 100,10,100);
-        }
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+
+        GamePlatform.create(world, 200, -300, 500f, 10f, 0f);
+        GamePlatform.create(world, 0, -300, 10f, 50f, 0f);
+        GamePlatform.create(world, 600, -300, 10f, 50f, 0f);
 
        /* //Ground definition
         {

@@ -25,23 +25,21 @@ public class GameLevel {
 
         //parseJSON("level1.json");
 
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-
         GamePlatform.create(world, 200, -300, 500f, 10f, 0f);
         GamePlatform.create(world, 0, -300, 10f, 50f, 0f);
         GamePlatform.create(world, 600, -300, 10f, 50f, 0f);
+
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
+        ObjectCreator.createObject(world);
 
        /* //Ground definition
         {

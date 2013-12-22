@@ -10,6 +10,7 @@ public class ObjectCreator {
     static public Body createObject(World w, FixtureDef f, BodyDef bd) {
         Body b = w.createBody(bd);
         b.createFixture(f);
+        b.m_mass = (float) (10 * Math.random());
         return b;
     }
 
@@ -56,7 +57,7 @@ class ShapeCreator {
 
 class FixtureDefCreator {
     static public FixtureDef defaultFixtureDef() {
-        return createFixtureDef(ShapeCreator.defaultShape(), 0.8f, 0.2f, 1f);
+        return createFixtureDef(ShapeCreator.defaultShape(), 0.9f, 0f, 1f);
     }
 
     // todo verify and make private
@@ -72,7 +73,7 @@ class FixtureDefCreator {
 
 class BodyDefCreator {
     static public BodyDef defaultBodyDef() {
-        return createBodyDef(BodyType.DYNAMIC, new Vec2((float) Math.random() * 100f + 100f, -(float) Math.random() * 10f - 100f), 45);
+        return createBodyDef(BodyType.DYNAMIC, new Vec2((float) Math.random() * 100f + 300f, -(float) Math.random() * 10f + 200f), 45);
     }
 
     static public BodyDef createBodyDef(BodyType t, Vec2 p, float a) {

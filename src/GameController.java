@@ -1,9 +1,14 @@
+import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.World;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.LinkedList;
 
 /**
  * Created by padawan on 12/11/13.
  */
-public class GameController implements Runnable{
+public class GameController implements Runnable, KeyListener {
 
     private GameLevel level = null;
 
@@ -18,27 +23,83 @@ public class GameController implements Runnable{
     private int targetFrameRate;
 
     private final int INIT_FPS = 60;
+    private final LinkedList<QueueItem> inputQueue;
+
 
     public GameController(GameModel model, GamePanel panel, boolean debug) {
+        inputQueue = new LinkedList<QueueItem>();
         this.panel = panel;
         this.model = model;
         level = model.getLevel();
+
 
         setFrameRate(INIT_FPS);
 
         GameDebugDraw debugDraw = new GameDebugDraw(this.panel);
         debugDraw.appendFlags(0x0001);
-       // debugDraw.appendFlags(0x0002);
-       // debugDraw.appendFlags(0x0004);
-       // debugDraw.appendFlags(0x0008);
-       // debugDraw.appendFlags(0x0010);
-       // debugDraw.appendFlags(0x0020);
+        // debugDraw.appendFlags(0x0002);
+        // debugDraw.appendFlags(0x0004);
+        // debugDraw.appendFlags(0x0008);
+        // debugDraw.appendFlags(0x0010);
+        // debugDraw.appendFlags(0x0020);
 
         this.model.getLevel().getWorld().setDebugDraw(debugDraw); // clarify add the debug draw to the controller
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
 
-    public void setFrameRate(int fps) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        System.out.println("DETECTED : keyPressed");
+        char key = e.getKeyChar();
+        int code = e.getKeyCode();
+        if (key != KeyEvent.CHAR_UNDEFINED) {
+//            model.getKeys()[key] = true;
+        }
+//        model.getCodedKeys()[code] = true;
+        inputQueue.add(new QueueItem(QueueItemType.KeyPressed, key, code));
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        System.out.println("DETECTED : keyReleased");
+        char key = e.getKeyChar();
+        int code = e.getKeyCode();
+        if (key != KeyEvent.CHAR_UNDEFINED) {
+//            model.getKeys()[key] = false;
+        }
+//        model.getCodedKeys()[code] = false;
+        else
+            inputQueue.add(new QueueItem(QueueItemType.KeyReleased, key, code));
+    }
+
+    enum QueueItemType {
+        MouseDown, MouseMove, MouseUp, ShiftMouseDown, KeyPressed, KeyReleased
+    }
+
+    class QueueItem {
+        public QueueItemType type;
+        public Vec2 p;
+        public char c;
+        public int code;
+
+        public QueueItem(QueueItemType t, Vec2 pt) {
+            type = t;
+            p = pt;
+        }
+
+        public QueueItem(QueueItemType t, char cr, int cd) {
+            type = t;
+            c = cr;
+            code = cd;
+        }
+    }
+
+
+    private void setFrameRate(int fps) {
         if (fps <= 0) {
             throw new IllegalArgumentException("Fps cannot be less than or equal to zero");
         }
@@ -143,6 +204,37 @@ public class GameController implements Runnable{
      */
     private void update() {
         // todo manage inputs
+
+        // process our input
+        if (!inputQueue.isEmpty()) {
+            synchronized (inputQueue) {
+                while (!inputQueue.isEmpty()) {
+                    QueueItem i = inputQueue.pop();
+                    switch (i.type) {
+                        case KeyPressed:
+                            System.out.println("keyPressed");
+                            keyPressedPoped(i.c, i.code);
+                            break;
+                        case KeyReleased:
+                            System.out.println("keyReleased");
+                            keyReleasedPoped(i.c, i.code);
+                            break;
+                        case MouseDown:
+//                            mouseDown(i.p);
+                            break;
+                        case MouseMove:
+//                            mouseMove(i.p);
+                            break;
+                        case MouseUp:
+//                            mouseUp(i.p);
+                            break;
+                        case ShiftMouseDown:
+//                            shiftMouseDown(i.p);
+                            break;
+                    }
+                }
+            }
+        }
         // Render the new world state (thanks to step function of World class)
 
         World world = model.getLevel().getWorld();
@@ -159,6 +251,26 @@ public class GameController implements Runnable{
         world.drawDebugData();
 
        // System.out.println(world.getBodyCount());
+
+    }
+
+    private void keyReleasedPoped(char c, int code) {
+
+
+    }
+
+    private void keyPressedPoped(char c, int code) {
+        System.out.println("key pressed");
+        switch (c) {
+            case 'd':
+                System.out.println("move right");
+                level.getHeros().move(new Vec2(10, 10));
+                break;
+            case 'q':
+                level.getHeros().move(new Vec2(-10, -10));
+                break;
+
+        }
 
     }
 }

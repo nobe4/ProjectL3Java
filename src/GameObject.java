@@ -30,5 +30,7 @@ public abstract class GameObject {
         body.setTransform(position, 0);
     }
 
-
+    public void move(Vec2 vec) {
+        setPosition(vec);
+    }
 }

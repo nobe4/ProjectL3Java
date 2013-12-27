@@ -5,7 +5,10 @@ import javax.swing.*;
  */
 public class GameMain {
     public static void main(String[] args) {
-        JFrame frame = new GameFrame();
+
+        boolean debug = true;
+
+        JFrame frame = new GameFrame(debug);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

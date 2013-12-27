@@ -136,6 +136,16 @@ public class GameDebugDraw extends DebugDraw implements GameDraw {
         return panel.getDBGraphics();
     }
 
+    @Override
+    public void setCamera(Vec2 position) {
+        getViewportTranform().setCenter(position);
+    }
+
+    public Vec2 getCamera() {
+        return getViewportTranform().getCenter();
+
+    }
+
     // CIRCLE GENERATOR
 
     private void generateCirle(Vec2 argCenter, float argRadius, Vec2[] argPoints, int argNumPoints) {

@@ -48,9 +48,16 @@ class ShapeCreator {
         return s;
     }
 
-    static public Shape createBoxShape(float width, float heigh) {
+    static public Shape createBoxShape(float width, float height) {
         PolygonShape s = new PolygonShape();
-        s.setAsBox(heigh, width);
+        s.setAsBox(width, height);
+        return s;
+    }
+
+    //todo May want a better heros shape later.
+    public static Shape createHeros(float width, float height) {
+        PolygonShape s = new PolygonShape();
+        s.setAsBox(width, height);
         return s;
     }
 }

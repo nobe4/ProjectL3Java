@@ -24,4 +24,8 @@ public interface GameDraw {
 
     public Graphics2D getGraphics();
 
+    public void setCamera(Vec2 position);
+
+    public Vec2 getCamera();
+
 }

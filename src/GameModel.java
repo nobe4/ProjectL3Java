@@ -4,12 +4,15 @@
 public class GameModel {
     private GameSettings settings;
     private GameLevel level;
-    private GameHeros heros;
+
+    //remove from here, will be in GameLevel (because heros has to be with other GameObjects)
+    //private GameHeros heros;
 
     public GameModel() {
         settings = new GameSettings();
         level = new GameLevel();
         level.init();
+
     }
 
     public GameSettings getSettings() {
@@ -28,11 +31,11 @@ public class GameModel {
         this.level = level;
     }
 
-    public GameHeros getHeros() {
-        return heros;
-    }
+//    public GameHeros getHeros() {
+//        return heros;
+//    }
 
-    public void setHeros(GameHeros heros) {
-        this.heros = heros;
-    }
+//    public void setHeros(GameHeros heros) {
+//        this.heros = heros;
+//    }
 }

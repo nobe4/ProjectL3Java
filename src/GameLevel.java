@@ -10,7 +10,13 @@ import java.util.Hashtable;
 public class GameLevel {
     private World world = null;
     private Body ground, box;
+
+    //GameObjects list
     private Hashtable<String, GameObject> objects;
+    private GameHeros heros;
+
+
+    private Vec2 initCoords = new Vec2(50, 50);
 
     public GameLevel() {/*do nothing*/}
 
@@ -25,9 +31,9 @@ public class GameLevel {
 
         //parseJSON("level1.json");
 
-        GamePlatform.create(world, 200, -300, 500f, 10f, 0f);
-        GamePlatform.create(world, 0, -300, 10f, 50f, 0f);
-        GamePlatform.create(world, 600, -300, 10f, 50f, 0f);
+        GamePlatform a = new GamePlatform(world, 200, -300, 500f, 10f, 0f);
+        GamePlatform b = new GamePlatform(world, 0, -300, 10f, 50f, 0f);
+        GamePlatform c = new GamePlatform(world, 600, -300, 10f, 50f, 0f);
 
         ObjectCreator.createObject(world);
         ObjectCreator.createObject(world);
@@ -40,6 +46,11 @@ public class GameLevel {
         ObjectCreator.createObject(world);
         ObjectCreator.createObject(world);
         ObjectCreator.createObject(world);
+
+        System.out.println("hello");
+        heros = GameHeros.getInstance();
+        heros.init(world, initCoords);
+        System.out.println("finish");
 
        /* //Ground definition
         {
@@ -136,5 +147,9 @@ public class GameLevel {
 
     public void setObjects(Hashtable<String, GameObject> objects) {
         this.objects = objects;
+    }
+
+    public GameHeros getHeros() {
+        return heros;
     }
 }

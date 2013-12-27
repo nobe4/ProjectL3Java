@@ -10,6 +10,11 @@ public class GamePanel extends JPanel {
 
     private int INIT_WIDTH = 600;
     private int INIT_HEIGHT = 400;
+
+    public GameDraw getDraw() {
+        return draw;
+    }
+
     private GameDraw draw;
     private Image dbImage = null;
     private Graphics2D dbg = null;

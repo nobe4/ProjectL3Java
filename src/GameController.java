@@ -19,7 +19,7 @@ public class GameController implements Runnable{
 
     private final int INIT_FPS = 60;
 
-    public GameController(GameModel model, GamePanel panel) {
+    public GameController(GameModel model, GamePanel panel, boolean debug) {
         this.panel = panel;
         this.model = model;
         level = model.getLevel();
@@ -36,6 +36,7 @@ public class GameController implements Runnable{
 
         this.model.getLevel().getWorld().setDebugDraw(debugDraw); // clarify add the debug draw to the controller
     }
+
 
     public void setFrameRate(int fps) {
         if (fps <= 0) {
@@ -146,6 +147,15 @@ public class GameController implements Runnable{
 
         World world = model.getLevel().getWorld();
         world.step(1f / 60f, 8, 3);
+
+        //set the camera at the new position
+        System.out.println("before error");
+        System.out.println("coucou :" + level.getHeros());
+        System.out.println("Heros position :" + level.getHeros().getPosition());
+        System.out.println("Camera position :" + panel.getDraw().getCamera());
+        panel.getDraw().setCamera(level.getHeros().getPosition());
+
+        //draw world
         world.drawDebugData();
 
        // System.out.println(world.getBodyCount());

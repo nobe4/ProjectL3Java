@@ -9,19 +9,25 @@ import org.jbox2d.dynamics.World;
  */
 public class GameHeros extends GameCharacter {
 
-    float width = 40f;
-    float height = 50f;
-
-
-//    private static class GameHerosHolder {
-
     private static final GameHeros instance = new GameHeros();
+    float width = 10f;
+    float height = 10f;
+    float xSpeed = 20;
+
+
+    //    private static class GameHerosHolder {
+    float ySpeed = 20;
 //    }
 
     private GameHeros() {
         System.out.println("constructor");
         //todo may need a better one
         //body must be initialized in an external function
+    }
+
+    public static GameHeros getInstance() {
+//        return GameHerosHolder.instance;
+        return GameHeros.instance;
     }
 
     /**
@@ -38,9 +44,18 @@ public class GameHeros extends GameCharacter {
         //Set heros position in class
     }
 
-    public static GameHeros getInstance() {
-//        return GameHerosHolder.instance;
-        return GameHeros.instance;
+    public void moveLeft() {
+        System.out.println("moveLeft");
+        instance.body.setLinearVelocity(instance.body.getLinearVelocity().add(new Vec2(-xSpeed, 0)));
     }
 
+    public void moveRight() {
+        System.out.println("moveRigth");
+        instance.body.setLinearVelocity(instance.body.getLinearVelocity().add(new Vec2(xSpeed, 0)));
+    }
+
+    public void jump() {
+        System.out.println("jump");
+        instance.body.setLinearVelocity(instance.body.getLinearVelocity().add(new Vec2(0, ySpeed)));
+    }
 }

@@ -6,7 +6,7 @@ import java.awt.*;
  */
 
 
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel{
 
     private int INIT_WIDTH = 600;
     private int INIT_HEIGHT = 400;
@@ -37,7 +37,6 @@ public class GamePanel extends JPanel {
     }
 
     //todo Grab from jbox2d ;). Really need to understand the exact behavior
-
     public boolean render() {
 
         if (dbImage == null) {

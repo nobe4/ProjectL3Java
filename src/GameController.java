@@ -1,5 +1,8 @@
 import org.jbox2d.dynamics.World;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 /**
  * Created by padawan on 12/11/13.
  */
@@ -11,6 +14,8 @@ public class GameController implements Runnable{
     private final GamePanel panel;
     private final GameModel model;
 
+    //private Hero hero todo ??? -> may optimize perf
+
     private Thread animationThread;
     private float frameRate = 0;
     private long startTime;
@@ -19,26 +24,75 @@ public class GameController implements Runnable{
 
     private final int INIT_FPS = 60;
 
-    public GameController(GameModel model, GamePanel panel, boolean debug) {
-        this.panel = panel;
-        this.model = model;
+
+    public GameController(GameModel argModel, GamePanel argPanel, boolean debug) {
+        panel = argPanel;
+        model = argModel;
+
+        panel.setFocusable(true);
+        panel.requestFocusInWindow();
+
         level = model.getLevel();
+
+        animationThread = new Thread(this, "Game");
 
         setFrameRate(INIT_FPS);
 
         GameDebugDraw debugDraw = new GameDebugDraw(this.panel);
         debugDraw.appendFlags(0x0001);
-       // debugDraw.appendFlags(0x0002);
-       // debugDraw.appendFlags(0x0004);
-       // debugDraw.appendFlags(0x0008);
-       // debugDraw.appendFlags(0x0010);
-       // debugDraw.appendFlags(0x0020);
+        // debugDraw.appendFlags(0x0002);
+        // debugDraw.appendFlags(0x0004);
+        // debugDraw.appendFlags(0x0008);
+        // debugDraw.appendFlags(0x0010);
+        // debugDraw.appendFlags(0x0020);
 
         this.model.getLevel().getWorld().setDebugDraw(debugDraw); // clarify add the debug draw to the controller
+
+        addListener();
     }
 
+    private void addListener(){
+        model.addLevelChangeListener(new GameModel.LevelChangedListener() {
+            @Override
+            public void levelChanged(GameLevel argLevel) {
+                System.out.println("level changed");
+                level = argLevel;
+                panel.grabFocus();
+            }
+        });
+        panel.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
 
-    public void setFrameRate(int fps) {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                System.out.println("keypressed");
+                System.out.println(e.toString());
+                switch(e.getKeyCode()){
+                    case 38:
+                        level.getHeros().jump();
+                        break;
+                    case 37:
+                        level.getHeros().moveLeft();
+                        break;
+                    case 39:
+                        level.getHeros().moveRight();
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                System.out.println("keyreleased");
+
+            }
+        });
+    }
+
+    private void setFrameRate(int fps) {
         if (fps <= 0) {
             throw new IllegalArgumentException("Fps cannot be less than or equal to zero");
         }
@@ -57,8 +111,7 @@ public class GameController implements Runnable{
         {
             frameCount = 0;
             animating = true;
-            if(animationThread == null)
-                animationThread = new Thread(this, "Game");
+
             animationThread.start();
         }
     }
@@ -143,17 +196,18 @@ public class GameController implements Runnable{
      */
     private void update() {
         // todo manage inputs
+
         // Render the new world state (thanks to step function of World class)
 
         World world = model.getLevel().getWorld();
         world.step(1f / 60f, 8, 3);
 
         //set the camera at the new position
-        System.out.println("before error");
-        System.out.println("coucou :" + level.getHeros());
-        System.out.println("Heros position :" + level.getHeros().getPosition());
-        System.out.println("Camera position :" + panel.getDraw().getCamera());
-        panel.getDraw().setCamera(level.getHeros().getPosition());
+        //System.out.println("before error");
+        //System.out.println("coucou :" + level.getHeros());
+        //System.out.println("Heros position :" + level.getHeros().getPosition());
+        //System.out.println("Camera position :" + panel.getDraw().getCamera());
+       // panel.getDraw().setCamera(level.getHeros().getPosition());
 
         //draw world
         world.drawDebugData();

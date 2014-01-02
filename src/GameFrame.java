@@ -19,6 +19,8 @@ public class GameFrame extends JFrame {
         controller = new GameController(model, panel, debug); // todo leave the controller for the frame or put it
         // inside the panel/model ?
 
+        model.setCurrentLevel(0);
+
         this.add(panel);
 
         this.pack();

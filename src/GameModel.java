@@ -1,9 +1,17 @@
+import java.util.Vector;
+
 /**
  * Created by padawan on 12/11/13.
  */
 public class GameModel {
+
+    public static interface LevelChangedListener {
+        public void levelChanged(GameLevel level);
+    }
+
     private GameSettings settings;
     private GameLevel level;
+    private final Vector<LevelChangedListener> listeners = new Vector<LevelChangedListener>();
 
     //remove from here, will be in GameLevel (because heros has to be with other GameObjects)
     //private GameHeros heros;
@@ -29,6 +37,16 @@ public class GameModel {
 
     public void setLevel(GameLevel level) {
         this.level = level;
+    }
+
+    public void setCurrentLevel(int currentLevelIndex){
+        for(LevelChangedListener listener : listeners){
+            listener.levelChanged(level);
+        }
+    }
+
+    public void addLevelChangeListener(LevelChangedListener argListener) {
+        listeners.add(argListener);
     }
 
 //    public GameHeros getHeros() {

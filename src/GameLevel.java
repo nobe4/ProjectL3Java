@@ -28,31 +28,48 @@ public class GameLevel {
     void init() {
         //initialize world
         if (world == null) initWorld();
-
         //parseJSON("level1.json");
 
-        GamePlatform a = new GamePlatform(world, 200, -300, 500f, 10f, 0f);
-        GamePlatform b = new GamePlatform(world, 0, -300, 10f, 50f, 0f);
-        GamePlatform c = new GamePlatform(world, 600, -300, 10f, 50f, 0f);
 
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
-        ObjectCreator.createObject(world);
+        GamePlatform b = new GamePlatform(world, 0, -300, 10f, 300f, 0f);
 
-        System.out.println("hello");
         heros = GameHeros.getInstance();
         heros.init(world, initCoords);
-        System.out.println("finish");
+    }
 
-       /* //Ground definition
+
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+    public Body getGround() {
+        return ground;
+    }
+
+    public void setGround(Body ground) {
+        this.ground = ground;
+    }
+
+    public Hashtable<String, GameObject> getObjects() {
+        return objects;
+    }
+
+    public void setObjects(Hashtable<String, GameObject> objects) {
+        this.objects = objects;
+    }
+
+    public GameHeros getHeros() {
+        return heros;
+    }
+}
+
+
+    /* //Ground definition
         {
                 BodyDef groundDef = new BodyDef();
                 groundDef.type = BodyType.STATIC;
@@ -95,7 +112,7 @@ public class GameLevel {
            // box.setAngularVelocity(-90f*0.0174532925199432957f);
         }
         //Add other stuff here*/
-    }
+
 
    /* private void parseJSON(String path) {
         File file = new File("./levels/level1.json");
@@ -124,32 +141,3 @@ public class GameLevel {
             ObjectCreator.createFromJSON((JSONObject) body, world);
         }
     }*/
-
-    public World getWorld() {
-        return world;
-    }
-
-    public void setWorld(World world) {
-        this.world = world;
-    }
-
-    public Body getGround() {
-        return ground;
-    }
-
-    public void setGround(Body ground) {
-        this.ground = ground;
-    }
-
-    public Hashtable<String, GameObject> getObjects() {
-        return objects;
-    }
-
-    public void setObjects(Hashtable<String, GameObject> objects) {
-        this.objects = objects;
-    }
-
-    public GameHeros getHeros() {
-        return heros;
-    }
-}

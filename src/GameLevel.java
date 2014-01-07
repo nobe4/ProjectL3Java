@@ -59,7 +59,14 @@ public class GameLevel {
         //Third platform
         objects.put("thirdPlatform", new GamePlatform(world, 600f, -350f, 10f, 50f, 0f));
 
+        //put rotated platform
         objects.put("rotate", new GamePlatform(world, 100f, -300f, 10f, 60f, 15f));
+
+        //moving object
+        GameMob mob = new GameMob(world, 250f, -325f, 10f, 50f, 0f);
+        mob.body.setAngularVelocity(0.25f);
+        mob.body.setAngularDamping(0.4f);
+        objects.put("kine", mob);
 
 
         //init heros

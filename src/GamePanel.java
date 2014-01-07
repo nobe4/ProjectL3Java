@@ -8,8 +8,8 @@ import java.awt.*;
 
 public class GamePanel extends JPanel {
 
-    private int INIT_WIDTH = 600;
-    private int INIT_HEIGHT = 400;
+    private int INIT_WIDTH = 800;
+    private int INIT_HEIGHT = 600;
 
     public GameDraw getDraw() {
         return draw;

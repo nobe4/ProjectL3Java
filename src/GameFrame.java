@@ -20,7 +20,6 @@ public class GameFrame extends JFrame {
         panel.requestFocusInWindow();
 
         controller = new GameController(model, panel, debug);
-        // inside the panel/model ?
 
         model.setCurrentLevel(0);
 

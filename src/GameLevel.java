@@ -16,7 +16,15 @@ public class GameLevel {
     private GameHeros heros;
 
 
-    private Vec2 initCoords = new Vec2(50, 50);
+    public Vec2 getInitCoords() {
+        return initCoords;
+    }
+
+    public void setInitCoords(Vec2 initCoords) {
+        this.initCoords = initCoords;
+    }
+
+    private Vec2 initCoords = new Vec2(100f, 10f);
 
     public GameLevel() {/*do nothing*/}
 
@@ -28,11 +36,33 @@ public class GameLevel {
     void init() {
         //initialize world
         if (world == null) initWorld();
+
+        //Init Hashtable
+        objects = new Hashtable<String, GameObject>();
         //parseJSON("level1.json");
 
+        //ground
+        objects.put("ground", new GamePlatform(world, 0f, -500f, 10f, 800f, 0f));
 
-        GamePlatform b = new GamePlatform(world, 0, -300, 10f, 300f, 0f);
+        //left wall
+        objects.put("leftWall", new GamePlatform(world, 0f, -400f, 100f, 10f, 0f));
 
+        //right wall
+        objects.put("rightWall", new GamePlatform(world, 800f, -400f, 100f, 10f, 0f));
+
+        //First platform
+        objects.put("firstPlatform", new GamePlatform(world, 200f, -450f, 10f, 50f, 0f));
+
+        //Second platform
+        objects.put("secondPlatform", new GamePlatform(world, 400f, -400f, 10f, 50f, 0f));
+
+        //Third platform
+        objects.put("thirdPlatform", new GamePlatform(world, 600f, -350f, 10f, 50f, 0f));
+
+        objects.put("rotate", new GamePlatform(world, 100f, -300f, 10f, 60f, 15f));
+
+
+        //init heros
         heros = GameHeros.getInstance();
         heros.init(world, initCoords);
     }
@@ -65,6 +95,8 @@ public class GameLevel {
     public GameHeros getHeros() {
         return heros;
     }
+
+
 }
 
 

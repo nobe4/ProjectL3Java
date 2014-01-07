@@ -16,7 +16,7 @@ public class GameHeros extends GameCharacter {
 
 
     //    private static class GameHerosHolder {
-    float ySpeed = 20;
+    float ySpeed = 40;
 //    }
 
     private GameHeros() {
@@ -32,7 +32,7 @@ public class GameHeros extends GameCharacter {
      */
     public void init(World world, Vec2 position) {
         shape = ShapeCreator.createBoxShape(width, height);
-        FixtureDef f = FixtureDefCreator.createFixtureDef(shape, 0.5f, 0.5f, 1f);
+        FixtureDef f = FixtureDefCreator.createFixtureDef(shape, 0.5f, 0.2f, 1f);
         BodyDef bd = BodyDefCreator.createBodyDef(BodyType.DYNAMIC);
         body = ObjectCreator.createObject(world, f, bd);
         body.setTransform(position, 0);

@@ -80,6 +80,9 @@ public class GameController implements Runnable {
                     case 39:
                         level.getHeros().moveRight();
                         break;
+                    case 82:
+                        level.getHeros().setPosition(level.getInitCoords());
+                        break;
                     default:
                         break;
                 }

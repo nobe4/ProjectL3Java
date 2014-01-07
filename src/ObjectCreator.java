@@ -96,7 +96,6 @@ class BodyDefCreator {
 }
 
 
-
  /*
     static public void createFromJSON(JSONObject o, World w) {
 
@@ -140,7 +139,6 @@ class BodyDefCreator {
         } else if (jsonShapedef.get("type").equals("chainShape")) shapeDefinition = new ChainShape();
         else if (jsonShapedef.get("type").equals("circleShape")) shapeDefinition = new CircleShape();
         else shapeDefinition = new PolygonShape();
-        //todo build other propreties
 
         // FixtureDef Definition
         FixtureDef fixtureDefinition = new FixtureDef();
@@ -169,8 +167,6 @@ class BodyDefCreator {
 
             //apply to body
             ground.createFixture(fixtureGround);
-
-
     }
 
     private static void createBasicBody2(JSONArray o, World w) {

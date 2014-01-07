@@ -1,8 +1,6 @@
 import org.jbox2d.collision.shapes.Shape;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
-import org.jbox2d.dynamics.BodyDef;
-import org.jbox2d.dynamics.FixtureDef;
 
 
 /**
@@ -10,16 +8,14 @@ import org.jbox2d.dynamics.FixtureDef;
  */
 
 public abstract class GameObject {
-    protected Body body;
-    //    protected BodyDef body;
-//    protected FixtureDef fixture;
-    protected Shape shape;
 
+    protected Body body;
+    protected Shape shape;
 
     public GameObject() {
 
-        BodyDef bd = new BodyDef();
-        FixtureDef fixture = new FixtureDef();
+//        BodyDef bd = new BodyDef();
+//        FixtureDef fixture = new FixtureDef();
     }
 
     public Vec2 getPosition() {

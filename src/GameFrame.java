@@ -16,7 +16,10 @@ public class GameFrame extends JFrame {
 
         model = new GameModel();
         panel = new GamePanel(debug);
-        controller = new GameController(model, panel, debug); // todo leave the controller for the frame or put it
+        panel.setFocusable(true);
+        panel.requestFocusInWindow();
+
+        controller = new GameController(model, panel, debug);
         // inside the panel/model ?
 
         model.setCurrentLevel(0);
@@ -25,6 +28,6 @@ public class GameFrame extends JFrame {
 
         this.pack();
         controller.start();
-        
+
     }
 }

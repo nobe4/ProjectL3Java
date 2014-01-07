@@ -37,6 +37,7 @@ public class GameDebugDraw extends DebugDraw implements GameDraw {
         sp1.y -= argRadiusOnScreen;
         g.fillOval((int) sp1.x, (int) sp1.y, (int) argRadiusOnScreen * 2, (int) argRadiusOnScreen * 2);
     }
+
     private final Vec2 temp = new Vec2();
     private final static IntArray xIntsPool = new IntArray();
     private final static IntArray yIntsPool = new IntArray();
@@ -72,6 +73,7 @@ public class GameDebugDraw extends DebugDraw implements GameDraw {
 
 
     private final Vec2 saxis = new Vec2();
+
     @Override
     public void drawSolidCircle(Vec2 center, float radius, Vec2 axis, Color3f color) {
         Vec2[] vecs = vec2Array.get(circlePoints);
@@ -123,7 +125,7 @@ public class GameDebugDraw extends DebugDraw implements GameDraw {
     @Override
     public void drawString(float x, float y, String s, Color3f color) {
         Graphics2D g = getGraphics();
-        if ( g== null)  {
+        if (g == null) {
             return;
         }
         Color c = cpool.getColor(color.x, color.y, color.z);
@@ -143,7 +145,6 @@ public class GameDebugDraw extends DebugDraw implements GameDraw {
 
     public Vec2 getCamera() {
         return getViewportTranform().getCenter();
-
     }
 
     // CIRCLE GENERATOR

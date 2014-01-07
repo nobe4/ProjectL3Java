@@ -1,3 +1,4 @@
+import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.World;
 
 import java.awt.event.KeyEvent;
@@ -6,7 +7,7 @@ import java.awt.event.KeyListener;
 /**
  * Created by padawan on 12/11/13.
  */
-public class GameController implements Runnable{
+public class GameController implements Runnable {
 
     private GameLevel level = null;
 
@@ -14,7 +15,7 @@ public class GameController implements Runnable{
     private final GamePanel panel;
     private final GameModel model;
 
-    //private Hero hero todo ??? -> may optimize perf
+    //private Hero hero
 
     private Thread animationThread;
     private float frameRate = 0;
@@ -51,7 +52,7 @@ public class GameController implements Runnable{
         addListener();
     }
 
-    private void addListener(){
+    private void addListener() {
         model.addLevelChangeListener(new GameModel.LevelChangedListener() {
             @Override
             public void levelChanged(GameLevel argLevel) {
@@ -69,7 +70,7 @@ public class GameController implements Runnable{
             public void keyPressed(KeyEvent e) {
                 System.out.println("keypressed");
                 System.out.println(e.toString());
-                switch(e.getKeyCode()){
+                switch (e.getKeyCode()) {
                     case 38:
                         level.getHeros().jump();
                         break;
@@ -107,8 +108,7 @@ public class GameController implements Runnable{
      * - Load needed resources
      */
     public synchronized void start() {
-        if(animating != true)
-        {
+        if (animating != true) {
             frameCount = 0;
             animating = true;
 
@@ -135,52 +135,15 @@ public class GameController implements Runnable{
         float timeInSecs = 0;
         beforeTime = startTime = updateTime = System.nanoTime();
 
-        while(animating)
-        {
+        panel.grabFocus();
+        panel.getDraw().setCamera(new Vec2(150f, 150f));
 
+        while (animating) {
             if (panel.render()) { //In the example, the function only draw the dark background
                 update();   //It makes all the important stuff (see jdoc)
                 panel.paintScreen();
             }
-
         }
-
-        //loop with sleep
-      /*  while(animating)
-        {
-            timeSpent = beforeTime - updateTime;
-            if (timeSpent > 0) {
-                timeInSecs = timeSpent * 1.0f / 1000000000.0f;
-                updateTime = System.nanoTime();
-                frameRate = (frameRate * 0.9f) + (1.0f / timeInSecs) * 0.1f;
-               // model.setCalculatedFps(frameRate); // only used for printing debug
-            } else {
-                updateTime = System.nanoTime();
-            }
-
-            if (panel.render()) { //In the example, the function only draw the dark background
-                update();   //It makes all the important stuff (see jdoc)
-                panel.paintScreen();
-            }
-
-            frameCount++;
-
-            afterTime = System.nanoTime();
-
-            timeDiff = afterTime - beforeTime;
-            sleepTime = (1000000000 / targetFrameRate - timeDiff) / 1000000;
-
-            System.out.println(sleepTime );
-
-            if (sleepTime > 0) {
-                try {
-                    Thread.sleep(sleepTime);
-                } catch (InterruptedException ex) {
-                }
-            }
-
-            beforeTime = System.nanoTime();
-        }*/
     }
 
 
@@ -202,17 +165,19 @@ public class GameController implements Runnable{
         World world = model.getLevel().getWorld();
         world.step(1f / 60f, 8, 3);
 
+
         //set the camera at the new position
         //System.out.println("before error");
         //System.out.println("coucou :" + level.getHeros());
-        //System.out.println("Heros position :" + level.getHeros().getPosition());
-        //System.out.println("Camera position :" + panel.getDraw().getCamera());
-       // panel.getDraw().setCamera(level.getHeros().getPosition());
+//        System.out.println("Heros position :" + level.getHeros().getPosition());
+//        System.out.println("Camera position :" + panel.getDraw().getCamera());
+
+        // System.out.println(world.getBodyCount());
 
         //draw world
         world.drawDebugData();
 
-       // System.out.println(world.getBodyCount());
-
+        //set camera
+        panel.getDraw().setCamera(level.getHeros().getPosition());
     }
 }

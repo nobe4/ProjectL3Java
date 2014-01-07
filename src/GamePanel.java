@@ -6,7 +6,7 @@ import java.awt.*;
  */
 
 
-public class GamePanel extends JPanel{
+public class GamePanel extends JPanel {
 
     private int INIT_WIDTH = 600;
     private int INIT_HEIGHT = 400;
@@ -18,7 +18,7 @@ public class GamePanel extends JPanel{
     private GameDraw draw;
     private Image dbImage = null;
     private Graphics2D dbg = null;
-    private int panelWidth = INIT_WIDTH; // correct here : size was never initialised
+    private int panelWidth = INIT_WIDTH;
     private int panelHeight = INIT_HEIGHT;
 
 
@@ -36,12 +36,11 @@ public class GamePanel extends JPanel{
 //        draw.getViewportTranform().setExtents(width / 2, height / 2);
     }
 
-    //todo Grab from jbox2d ;). Really need to understand the exact behavior
+
     public boolean render() {
 
         if (dbImage == null) {
             System.err.println("dbImage is null, creating a new one");
-//            log.debug("dbImage is null, creating a new one");
             if (panelWidth <= 0 || panelHeight <= 0) {
                 System.err.println("wrong dims");
                 return false;
@@ -49,7 +48,6 @@ public class GamePanel extends JPanel{
             dbImage = createImage(panelWidth, panelHeight);
             if (dbImage == null) {
                 System.err.println("dbImage is still null, ignoring render call");
-//                log.error("dbImage is still null, ignoring render call");
                 return false;
             }
             dbg = (Graphics2D) dbImage.getGraphics();
@@ -60,7 +58,7 @@ public class GamePanel extends JPanel{
     }
 
     /**
-     * Seems to update the current image shown in the panel
+     * Update the current image shown in the panel
      */
     public void paintScreen() {
         try {
@@ -71,7 +69,7 @@ public class GamePanel extends JPanel{
                 g.dispose();
             }
         } catch (AWTError e) {
-//            log.error("Graphics context error", e);
+            System.err.println("Graphics context error");
         }
     }
 

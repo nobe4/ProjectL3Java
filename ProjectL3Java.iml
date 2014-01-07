@@ -10,13 +10,13 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/jbox2d-library-2.2.1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../jbox2d-2.2.1.1/jbox2d-library/target/jbox2d-library-2.2.1.1.jar!/" />
         </CLASSES>
         <JAVADOC>
-          <root url="jar://$MODULE_DIR$/lib/jbox2d-library-2.2.1.1-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../jbox2d-2.2.1.1/jbox2d-library/target/jbox2d-library-2.2.1.1-javadoc.jar!/" />
         </JAVADOC>
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/lib/jbox2d-library-2.2.1.1-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../jbox2d-2.2.1.1/jbox2d-library/target/jbox2d-library-2.2.1.1-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>

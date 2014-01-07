@@ -63,31 +63,18 @@ public class GameClassicDraw implements GameDraw {
 
     }
 
-    /**
-     * To be implemented
-     *
-     * @return
-     */
+
     @Override
     public Graphics2D getGraphics() {
         return null;
     }
 
-    /**
-     * To be implemented
-     *
-     * @return
-     */
+
     @Override
     public void setCamera(Vec2 position) {
 
     }
 
-    /**
-     * To be implemented
-     *
-     * @return
-     */
     @Override
     public Vec2 getCamera() {
         return null;

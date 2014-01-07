@@ -13,7 +13,6 @@ public class GameModel {
     private GameLevel level;
     private final Vector<LevelChangedListener> listeners = new Vector<LevelChangedListener>();
 
-    //remove from here, will be in GameLevel (because heros has to be with other GameObjects)
     //private GameHeros heros;
 
     public GameModel() {
@@ -39,8 +38,8 @@ public class GameModel {
         this.level = level;
     }
 
-    public void setCurrentLevel(int currentLevelIndex){
-        for(LevelChangedListener listener : listeners){
+    public void setCurrentLevel(int currentLevelIndex) {
+        for (LevelChangedListener listener : listeners) {
             listener.levelChanged(level);
         }
     }
@@ -49,11 +48,4 @@ public class GameModel {
         listeners.add(argListener);
     }
 
-//    public GameHeros getHeros() {
-//        return heros;
-//    }
-
-//    public void setHeros(GameHeros heros) {
-//        this.heros = heros;
-//    }
 }

@@ -20,13 +20,10 @@ public class GameHeros extends GameCharacter {
 //    }
 
     private GameHeros() {
-        System.out.println("constructor");
-        //todo may need a better one
-        //body must be initialized in an external function
+
     }
 
     public static GameHeros getInstance() {
-//        return GameHerosHolder.instance;
         return GameHeros.instance;
     }
 
@@ -34,14 +31,11 @@ public class GameHeros extends GameCharacter {
      * Used to initialized the heros body
      */
     public void init(World world, Vec2 position) {
-        System.out.println("init");
         shape = ShapeCreator.createBoxShape(width, height);
         FixtureDef f = FixtureDefCreator.createFixtureDef(shape, 0.5f, 0.5f, 1f);
         BodyDef bd = BodyDefCreator.createBodyDef(BodyType.DYNAMIC);
         body = ObjectCreator.createObject(world, f, bd);
         body.setTransform(position, 0);
-
-        //Set heros position in class
     }
 
     public void moveLeft() {

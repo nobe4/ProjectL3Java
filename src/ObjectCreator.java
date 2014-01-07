@@ -32,9 +32,9 @@ class ShapeCreator {
     static private Shape createShape(ShapeType type) {
         Shape s = null;
 
-        if (type == ShapeType.EDGE) s = createEdgeShape(); // todo add position
+        if (type == ShapeType.EDGE) s = createEdgeShape();
         else if (type == ShapeType.POLYGON)
-            s = createBoxShape((float) Math.random() * 10f + 10f, (float) Math.random() * 10f + 10f); // todo only handle boxes
+            s = createBoxShape((float) Math.random() * 10f + 10f, (float) Math.random() * 10f + 10f);
         else if (type == ShapeType.CIRCLE) System.err.println("Not handled");
         else if (type == ShapeType.CHAIN) System.err.println("Not handled");
         else System.err.println("Not handled");
@@ -54,7 +54,6 @@ class ShapeCreator {
         return s;
     }
 
-    //todo May want a better heros shape later.
     public static Shape createHeros(float width, float height) {
         PolygonShape s = new PolygonShape();
         s.setAsBox(width, height);
@@ -67,7 +66,7 @@ class FixtureDefCreator {
         return createFixtureDef(ShapeCreator.defaultShape(), 0.9f, 0f, 1f);
     }
 
-    // todo verify and make private
+
     static public FixtureDef createFixtureDef(Shape s, float friction, float restitution, float density) {
         FixtureDef f = new FixtureDef();
         f.shape = s;
@@ -105,7 +104,6 @@ class BodyDefCreator {
             createBasicBody2(((JSONArray) o.get("proprieties")), w);
         } else {
             System.err.println("Not handled now ...");
-            // todo add other classes
         }
     }
 
@@ -156,8 +154,6 @@ class BodyDefCreator {
 
         //if(fixtureDefinition.density == null) fixtureDefinition.density = 0.0f;
         //if(fixtureDefinition.density == null) fixtureDefinition.density = 0.0f;
-
-
 
 
         /*

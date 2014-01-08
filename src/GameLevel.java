@@ -25,7 +25,7 @@ public class GameLevel {
         this.initCoords = initCoords;
     }
 
-    private Vec2 initCoords = new Vec2(100f, 10f);
+    private Vec2 initCoords = new Vec2(100f, -10f);
 
     public GameLevel() {/*do nothing*/}
 
@@ -46,10 +46,14 @@ public class GameLevel {
         objects.put("ground", new GamePlatform(world, 0f, -500f, 10f, 800f, 0f));
 
         //left wall
-        objects.put("leftWall", new GamePlatform(world, 0f, -400f, 100f, 10f, 0f));
+        objects.put("leftWall", new GamePlatform(world, 0f, -400f, 500f, 10f, 0f));
 
         //right wall
-        objects.put("rightWall", new GamePlatform(world, 800f, -400f, 100f, 10f, 0f));
+        objects.put("rightWall", new GamePlatform(world, 800f, -400f, 500f, 10f, 0f));
+
+        //Ceiling
+        objects.put("ceiling", new GamePlatform(world, 200f, 0f, 10f, 800f, 0f));
+
 
         //First platform
         objects.put("firstPlatform", new GamePlatform(world, 200f, -450f, 10f, 50f, 0f));
@@ -61,13 +65,19 @@ public class GameLevel {
         objects.put("thirdPlatform", new GamePlatform(world, 600f, -350f, 10f, 50f, 0f));
 
         //put rotated platform
-        objects.put("rotate", new GamePlatform(world, 100f, -300f, 10f, 60f, 15f));
+        objects.put("rotateDown", new GamePlatform(world, 100f, -300f, 10f, 60f, 15f));
 
         //moving object
         GameMob mob = new GameMob(world, 250f, -325f, 10f, 50f, 0f);
         mob.body.setAngularVelocity(0.25f);
         mob.body.setAngularDamping(0.4f);
-        objects.put("kine", mob);
+        objects.put("kine1", mob);
+
+        //second one
+        mob = new GameMob(world, 625f, -175f, 10f, 50f, 0f);
+        mob.body.setAngularVelocity(0.25f);
+        mob.body.setAngularDamping(0.4f);
+        objects.put("kine2", mob);
 
 
         //init heros

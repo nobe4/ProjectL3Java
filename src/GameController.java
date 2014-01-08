@@ -181,9 +181,11 @@ public class GameController implements Runnable {
 
         //draw world
         world.drawDebugData();
-        panel.getDraw().drawString(5, 15, "Instructions : ", Color3f.WHITE);
-        panel.getDraw().drawString(5, 30, "Press N to add dynamic box", Color3f.WHITE);
-        panel.getDraw().drawString(5, 45, "Press R to reset your box", Color3f.WHITE);
+        panel.getDraw().drawString(15, 30, "Instructions : ", Color3f.WHITE);
+        panel.getDraw().drawString(15, 45, "Press N to add dynamic box", Color3f.WHITE);
+        panel.getDraw().drawString(15, 60, "Press R to reset your box", Color3f.WHITE);
+        panel.getDraw().drawString(15, 90, "Use arrow keys to move your box", Color3f.WHITE);
+
 
         //set camera
         panel.getDraw().setCamera(level.getHeros().getPosition());

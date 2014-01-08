@@ -11,7 +11,7 @@ public class GameFrame extends JFrame {
     private GamePanel panel;
 
     public GameFrame(boolean debug) {
-        super("This is my Frame !");
+        super("JBox2d Demo");
         this.setLayout(new BorderLayout());
 
         model = new GameModel();

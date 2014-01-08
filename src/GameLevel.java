@@ -14,6 +14,7 @@ public class GameLevel {
     //GameObjects list
     private Hashtable<String, GameObject> objects;
     private GameHeros heros;
+    private int nbBox = 0;
 
 
     public Vec2 getInitCoords() {
@@ -104,6 +105,10 @@ public class GameLevel {
     }
 
 
+    public void addDynamicObject() {
+        String s = "box" + nbBox;
+        objects.put(s, new GameBox(world, 600f, -150f, 10f, 10f, 0f));
+    }
 }
 
 

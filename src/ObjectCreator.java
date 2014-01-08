@@ -28,7 +28,6 @@ class ShapeCreator {
         return createShape(ShapeType.POLYGON);
     }
 
-    // todo make private
     static private Shape createShape(ShapeType type) {
         Shape s = null;
 

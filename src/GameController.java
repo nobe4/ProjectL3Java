@@ -1,3 +1,4 @@
+import org.jbox2d.common.Color3f;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.World;
 
@@ -83,6 +84,8 @@ public class GameController implements Runnable {
                     case 82:
                         level.getHeros().setPosition(level.getInitCoords());
                         break;
+                    case 78:
+                        level.addDynamicObject();
                     default:
                         break;
                 }
@@ -161,7 +164,6 @@ public class GameController implements Runnable {
      * Note : the update function may also update the camera.
      */
     private void update() {
-        // todo manage inputs
 
         // Render the new world state (thanks to step function of World class)
 
@@ -179,6 +181,9 @@ public class GameController implements Runnable {
 
         //draw world
         world.drawDebugData();
+        panel.getDraw().drawString(5, 15, "Instructions : ", Color3f.WHITE);
+        panel.getDraw().drawString(5, 30, "Press N to add dynamic box", Color3f.WHITE);
+        panel.getDraw().drawString(5, 45, "Press R to reset your box", Color3f.WHITE);
 
         //set camera
         panel.getDraw().setCamera(level.getHeros().getPosition());
